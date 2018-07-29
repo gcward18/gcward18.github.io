@@ -1,0 +1,54 @@
+# Site settings
+title: George Ward
+linkedin_username: gcward18
+name: George Ward
+
+# Build settings
+markdown: kramdown
+
+# User specific content
+# Links that will appear in the navbar
+primarylinks:
+  - title: LinkedIn
+  - url: https://www.linkedin.com/in/georgecward/
+  - title: GitHub
+  - url: https://github.com/gcward18
+
+skills:
+  - Python
+  - C++
+  - C#
+  - C
+  - Assembly
+  - MySQL
+
+# Work experince 
+roles:
+  - title: Intern
+    start: May 2018
+    end: Aug 2018
+    employer: Device Solution
+    description: Device Solutions is a engineering contracting firm that offers feasibility studies, embedded hardware and software design and development, industry and carrier certifications and approvals, deployment services, and manufacturing support.
+  - title: Intern
+    start: May 2017
+    end:  Aug 2017
+    employer: WW Wood Products
+    description: W. W. Wood Products, Inc. is a leading North American manufacturer of wood moldings, cabinet doors, and custom cabinetry for distinguished homes.
+  - title: Military Police
+    start: Sept 2015
+    end: Ongoing
+    employer: Missouri National Guard
+    description: The Missouri National Guard is a component of the Missouri Department of Public Safety and the National Guard of the United States.
+  - title: Aviation Structural Mechanic
+    start: May 2011
+    end: Apr 2015
+    employer: US Navy
+    description: The United States Navy is the naval warfare service branch of the United States Armed Forces and one of the seven uniformed services of the United States.
+
+# Eductation
+education:
+  - level: Bachelor of Science
+    date: 2019
+    subject: Computer Science
+    school: Missouri University of Science and Technology
+
