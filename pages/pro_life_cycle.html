@@ -1,0 +1,149 @@
+ <!-- Latest compiled and minified CSS -->
+ <head>
+        <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<div class="jumbotron text-center">
+        <h1>Project Life Cycle</h1>
+</div>
+
+<div>
+    <h2>Static Variables</h2>
+    <ul>
+        <li>It's commonly thought that functions have no "state". But static variables give you a way
+            to give a function a state. They are allocated and initalized only one time, and persists 
+            until the end of the program.
+        </li>
+    </ul>
+    <pre  class='brush: cpp'>
+        float f(float); // an expensive function
+        float remember(const float x) 
+        {
+            static bool first_time = true;
+            static float previous_x;
+            static float previous_fx;
+            
+            if (first_time || x != previous_x)
+            {
+                first_time = false;
+                previous_x = x;
+                previous_fx = f(x);
+            }
+
+            return previous_fx;
+        }
+    </pre>
+    <h3>
+        NOTE:
+    </h3>
+    <ul>
+        <li> s1 and s5 are non-local static objects.</li>
+        <li>They are crated first and in that order and destroyed in reverse order. The local (static) objects
+            are created only once and destroyed in random order relative to themselved and non-local objects.
+        </li>
+    </ul>
+</div>
+
+<div>
+    <h1>Dynamic Objects</h2>
+    <ul>
+        <li>
+            Allocated by a call to new and deallocated by a delete.
+        </li>
+        <li>
+            Objects are created only as needed.
+        </li>
+        <li>
+            There doesn't need to be an association between dynamic objects and variables.
+        </li>
+        <li>
+            <b>new</b> will invoke the appropriate constructor.
+        </li>
+        <li>
+            new array of objects requires a default constructor.
+        </li>
+        <li>
+            The upside to dynmaic memory is the flexibility.
+        </li>
+        <li>
+            The downside is the memory management required.
+        </li>
+    </ul>
+    <h3>Construction:</h3>
+    <pre  class='brush: cpp'>
+        int *p = new int; // Note: new's operrand is type
+    </pre>
+    <p>or</p>
+    <pre  class='brush: cpp'>
+        int *p = new int[size]; // must have a default constructor
+    </pre>
+
+    <h3>Destruction:</h3>
+    <p>Always match every call to <b>new</b> with the appropriate call to <b>delete</b></p>
+
+    <h3>Bad Deletions -> "Big Problems"</h3>
+    <ol>
+        <li> 
+            <p>
+                <b>Dangling Ptrs:</b> - "shallow" copies, are created when a ptr is copied instead
+                of what it's pointed to. When both pointers are deleted, you have a 'double deletion'.
+            </p>
+            
+        </li>
+        <li>
+            <b>Dangling Ptrs</b> - set a ptr to an automatic object. When the automatic object goes out of scope, you
+            have a pointer that points to nothing.
+            <b>Fix</b> Don't point to automatics var's.
+        </li>
+        <li>
+            Deleting a function parameter - you pass a pointer to a function and then delete it ther. Then in the calling
+            function, the pointer is useless.
+            <b>Fix</b> Don't do this!!!!
+        </li>
+        <li>
+            <b>Garabage</b> - Not deleting a object. When this happens, memory is leaked.
+            <b>Fix</b> be responsible: Use "smart" pointers.
+        </li>
+        
+    </ol>
+    <p>Note: fix, make your own copy constructors</p>
+            <pre class='brush: cpp'>
+                class bad
+                {
+                    public:
+                        bad() { p = new int(0); }
+                        ~bad() { delete p; }
+                        int *p;
+                };
+
+                void f()
+                {
+                    bad apple1;
+                    bad apple2(apple1);
+                    
+                    // stuff ......
+                }
+            </pre>
+            <p>What happens when control leaves the scope?</p>
+            <p>both objects are deleted and you have a double deletion</p>
+
+            <pre  class='brush: cpp'>
+                class good
+                {
+                    public:
+                        good() { p = new int(0); }
+                        ~good() { delete p; }
+                        good(const good& s) : p(new int(*s.p)) {}
+                        good& opertor = (const good& s)
+                        {
+                            if(s.p != p)
+                            {
+                                delete p;
+                                p = new int(*s.p);
+                            }
+                            return *this;
+                        }
+                };
+            </pre>
+</div>
