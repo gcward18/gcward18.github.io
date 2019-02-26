@@ -1,0 +1,65 @@
+<!-- Latest compiled and minified CSS -->
+<head>
+        <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    </head>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <div class="jumbotron text-center">
+            <h1>Smart Pointers</h1>
+    </div>
+    
+    <div name="slide">
+        <h2>Pointers are very necessary in robust c++ coding. But, the built-in ptrs are too weak and too strong. They give 
+            the programmer too much freedom to screw up. It's too easy to make <b>fatal</b> mistakes
+        </h2>
+        <p><b>Aggregation</b> is the combining of objects inside other objects. In doing so, you must be aware of memory management
+             concerns/dangers/issues/problmes/etc.If a ptr is contained, who controls the lifteime of the lifetime of the object 
+             this is pointed to. When a built-in ptr is a member variable of an object, it is called "referentail aggregation". 
+             (sometimes referred to "referential aggrevation"). Because of default copy behavior, when an aggregate is copied what is 
+             is getting copied? The pointer is getting copied, but not that too which the pointer points. Leaks cause in many ways, but 
+             they can be created in anti-ninjamanic ways.
+        </p>
+
+        <p>Example: when an exception is thrown</p>
+
+        <p>Good programmers will define ptr objects that act as smart pointers. They intercept indirection and perform the necessary
+            housekeeping to prevent leaks. We write smart pointers to establish a one-to-one relationship between ptr and object.
+        </p>
+
+        <p>We'll create two classes: The copy builtin ptr class, and extend that for the copied object class.</p>
+
+        <pre  class='brush: cpp'>
+            template "<"typename T>
+            class CBPtr     //copied built-in ptr
+            {
+                public:
+                    CBPtr(): the_ptr(0) {} // defaults to null
+                    CBPtr(T* just_created): the_ptr(just_created) {}
+                    ~CBPtr() { delete the_ptr; }
+                    CBPtr(const CBPtr"<"T> &aCP): the_ptr(aCP.isNull()? 0 : new(*aCP.the_ptr)) {}
+                    CBPtr"<"T> & operator =(T *p) 
+                    {
+                        delete the_ptr;
+                        the_ptr = p;
+                        return *this;
+                    } 
+                    CBPtr"<"T> & operator =(const CBPtr"<"T> &rhs)
+                    {
+                        if(the_ptr != rhs.the_ptr)
+                        {
+                            delete the_ptr;
+                            the_ptr = rhs.isNull ? 0 : new T(*rhs.the_ptr);
+                        }
+                        return (*this);
+                    } 
+                    T &operator *() const { return *the_ptr; }
+                    bool isNull() const { return the_ptr == nullptr; }
+                    T *releaseControl()
+                    {
+                        T *save_ptr = the_ptr;
+                        the_ptr = 0;
+                        return save_ptr;
+                    }
+            }
+        </pre>        
+    </div>
