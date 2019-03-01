@@ -9,8 +9,88 @@
     <ol>
             <li> a(+)b = b(+)a, for all a,b in V</li>
             <li> (a(+)b)(+)g = a(+)(b(+)g), for all a,b,g in V</li>
-            <li> a(+)0 = 0(+)a = a<, all a in V, and 0 in V, there has to be a "zero" element in V </li>
-            <li> a(+)0 = 0(+)a = a<, all a in V, and 0 in V, there has to be a "zero" element in V </li>
+            <li> a(+)0 = 0(+)a = a, all a in V, and 0 in V, there has to be a "zero" element in V </li>
+            <li> a(+)0 = 0(+)a = a, all a in V, and 0 in V, there has to be a "zero" element in V </li>
             <li> all a in V there exists - a in V such that a(*)-a = -a(+) = 0 </li>
+            <li> c(*)(a(+)b) = c(*)a(+)c(*)b, for all a,b in V, c is a scalar</li>
+            <li> c(+)d)(*)a = c(*)a(+)d(*)a , for all c,d in V,a is a scalar</li>
+            <li> c(*)d(*)a = (cd)(*)a , for all c,d a, V</li>
+            <li> 1(*)a=a(*)1, for all a in V</li>
     </ol>
+    <h3>Most often, the set of scalars is the real numbers</h3>
 </ol>
+
+<div>
+    <h2>Examples:</h2>
+    <p>Let V be the set of real n-tuples^1, and the set of scalars R^1</p>
+    <h3>Is this a vector space? What is (+) and (*) mean here?</h3>
+    <p>Let's use the "usual" meaning of both</p>
+    <ul>
+        <li>adding two n-tuples means an n-tuple whose components are the usual real sums of the components of the addends; and 
+            scalar multiplication results in an n-tuple whose components are the product of the scalar multiple and that component. 
+            <br/>
+            <b>Example</b> <br />
+            u"<"x,y,z>  v="<"x_2, y_2, z_2> c in set of real numbers <br />
+            u(+)v = u + v = "<"x_1 + x_2, y_1 + y_2, z_1 + z_2 ><br />
+            c(*)v = cv = "<"cx_2, cy_2, cz_2> <br />
+            IS VECTOR SPACE<br/>
+        </li>
+        <li>
+            let be the set of all n-times continous functions on [a,b] and scalars in the set of real numbers <br />
+            f in the set V such that f : c^n[a,b]<br />
+            IS VECTOR SPACE<br/>
+        </li>
+        <li>
+            Let V be all reall mxn matrices and scalars in the set of real numbers usual additon and mulptilcation<br />
+            IS VECTOR SPACE<br/>
+        </li>
+        <li>
+            Let V be n-tuples of integers and scalars R^1 <br />
+            IS <b>NOT</b> VECTOR SPACE<br/>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <h2>Subspaces</h2>
+    <h3>S of vector <b>subset</b>, V, is a subset of the vectors V with the same operations.</h3>
+    <p>Futher more, to show S as a subset of V is a vector space, it is only necessary to show closure
+        properties
+    </p>
+
+    <h3> A linear combination of vectors in a set, V, is any sum of constant multiples of these vectors</h3>
+    <p>e.g. <br/> V= {a_1,a_2,....,a_n}<br/>The an arbitrary linear combination is <br/> all a_1\alpha_1 + a_2\alpha_2+....+a_n\alpha_n, for all a in the set of Real numbers</p>
+    
+    <h3>One very impoortant property of vector spaces is linear independence.</h3>
+    <p>if there exists constans a_i, not all zero, such that (*) a_1alpha_1 + a_2alpha_2 +...+ a_nalpha_n = 0<br/>
+        Then S is said to be linearly independent.<br/>
+        Another way to characterize linear dependence is that at least one vector in the set can be constructed as a linear combination of the other vectors
+    </p>
+</div>
+
+<div>
+    <h3>Def: If a set S={alpha_1,...,alpha_n} <b>spans</b> a vector space V, then any vector in V can be written as a linear combination of some 
+        subset of S.
+    </h3>
+    <h3>Def: If a set S spans a vector space V adn is linearly independent then S is called basis for V. (The number of vectors in a basis for V is called it's dimension)
+    </h3>
+    <p>A basis for V forms a set of basic building blocks for V</p>
+
+    <h3>For R^3 = RxRxR or 3-dimensional space</h3>
+    <p>(ordered tuples)<br/>
+        We use "<"i^^, j^^, k^^> as our basis <br/>
+        where i^^="<"1,0,0><br/>
+        where j^^="<"0,1,0><br/>
+        where k^^="<"0,0,1><br/>
+    </p>
+    <h3>Why do we use i^^,j^^,k^^ as our basis?</h3>
+    <p>It's easy</p>
+
+    <h3>{i^^, j^^, k^^} is orthonormal (perpendicular and same length)</h3>
+</div>
+
+<div>
+    <ol>
+        <li>"n-tuples" are ordered sets of n-things</li>
+    </ol>
+</div>
