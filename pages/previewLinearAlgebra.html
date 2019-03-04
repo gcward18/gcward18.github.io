@@ -1,4 +1,12 @@
-<h1>Review of Linear Alebra</h1>
+<!-- Latest compiled and minified CSS -->
+<head>
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<div class="jumbotron text-center">
+        <h1>Review of Linear Alebra</h1>
+</div>
 <h3>Definition Vector Space:</h3>
 <p>is a set of Vectors (v) on which is defined a set of operation, &plus; and &sdot; , vector addition and scalar multiplication,
     in conjunction with a set of scalars. 
@@ -13,7 +21,7 @@
             <li> a&plus;0 = 0&plus;a = a&lt;, all a &isin; V, and 0 &isin; V, there has to be a "zero" element &isin; V </li>
             <li> all a &isin; V &exist; - a &isin; V such that a&sdot;-a = -a&plus; = 0 </li>
             <li> c&sdot;(a&plus;b) = c&sdot;a&plus;c&sdot;b, &forall; a,b &isin; V, c is a scalar</li>
-            <li> c&plus;d)&sdot;a = c&sdot;a&plus;d&sdot;a , &forall; c,d &isin; V,a is a scalar</li>
+            <li> (c&plus;d)&sdot;a = c&sdot;a&plus;d&sdot;a , &forall; c,d &isin; V,a is a scalar</li>
             <li> c&sdot;d&sdot;a = (cd)&sdot;a , &forall; c,d a, V</li>
             <li> 1&sdot;a=a&sdot;1, &forall; a &isin; V</li>
     </ol>
@@ -30,18 +38,18 @@
             scalar multiplication results in an n-tuple whose components are the product of the scalar multiple and that component. 
             <br/>
             <b>Example</b> <br />
-            u"<"x,y,z>  v="<"x_2, y_2, z_2> c &isin; set of real numbers <br />
-            u&plus;v = u + v = "<"x_1 + x_2, y_1 + y_2, z_1 + z_2 ><br />
-            c&sdot;v = cv = "<"cx_2, cy_2, cz_2> <br />
+            u=&lt;x,y,z> , v=&lt;x<font face="Symbol">&#178;</font>, y<font face="Symbol">&#178;</font>, z<font face="Symbol">&#178;</font>> c &isin; &#x211d; <br />
+            u&plus;v = u + v = &lt;x&sup1; + x<font face="Symbol">&#178;</font>, y&sup1; + y<font face="Symbol">&#178;</font>, z&sup1; + z<font face="Symbol">&#178;</font> ><br />
+            c&sdot;v = cv = &lt;cx<font face="Symbol">&#178;</font>, cy<font face="Symbol">&#178;</font>, cz<font face="Symbol">&#178;</font>> <br />
             IS VECTOR SPACE<br/>
         </li>
         <li>
-            let be the set of all n-times continous functions on [a,b] and scalars in the set of real numbers <br />
-            f in the set V such that f : c^n[a,b]<br />
+            let be the set of all n-times continous functions on [a,b] and scalars &isin; &#x211d; <br />
+            f &isin; V such that f : c^n[a,b]<br />
             IS VECTOR SPACE<br/>
         </li>
         <li>
-            Let V be all reall mxn matrices and scalars in the set of real numbers usual additon and mulptilcation<br />
+            Let V be all reall mxn matrices and scalars &isin; &#x211d; usual additon and mulptilcation<br />
             IS VECTOR SPACE<br/>
         </li>
         <li>
@@ -59,17 +67,17 @@
     </p>
 
     <h3> A linear combination of vectors in a set, V, is any sum of constant multiples of these vectors</h3>
-    <p>e.g. <br/> V= {a_1,a_2,....,a_n}<br/>The an arbitrary linear combination is <br/> all a_1\alpha_1 + a_2\alpha_2+....+a_n\alpha_n, &forall; a in the set of Real numbers</p>
+    <p>e.g. <br/> V= {a&sup1;,a<font face="Symbol">&#178;</font>,....,a_n}<br/>The an arbitrary linear combination is <br/> all a&sup1;&&alpha;;&sup1; + a<font face="Symbol">&#178;</font>&&alpha;;<font face="Symbol">&#178;</font>+....+a_n&&alpha;;_n, &forall; a &isin; &#x211d;</p>
     
     <h3>One very impoortant property of vector spaces is linear independence.</h3>
-    <p>if there exists constans a_i, not all zero, such that &sdot; a_1alpha_1 + a_2alpha_2 +...+ a_nalpha_n = 0<br/>
+    <p>if there exists constans a_i, not all zero, such that &sdot; a&sup1;&alpha;&sup1; + a<font face="Symbol">&#178;</font>&alpha;<font face="Symbol">&#178;</font> +...+ a_n&alpha;_n = 0<br/>
         Then S is said to be linearly independent.<br/>
-        Another way to characterize linear dependence is that at least one vector in the set can be constructed as a linear combination of the other vectors
+        Another way to characterize linear dependence is that at least one vector &isin; can be constructed as a linear combination of the other vectors
     </p>
 </div>
 
 <div>
-    <h3>Def: If a set S={alpha_1,...,alpha_n} <b>spans</b> a vector space V, then any vector in V can be written as a linear combination of some 
+    <h3>Def: If a set S={&alpha;&sup1;,...,&alpha;_n} <b>spans</b> a vector space V, then any vector in V can be written as a linear combination of some 
         subset of S.
     </h3>
     <h3>Def: If a set S spans a vector space V adn is linearly independent then S is called basis for V. (The number of vectors in a basis for V is called it's dimension)
@@ -78,15 +86,15 @@
 
     <h3>For R^3 = RxRxR or 3-dimensional space</h3>
     <p>(ordered tuples)<br/>
-        We use "<"i^^, j^^, k^^> as our basis <br/>
-        where i^^="<"1,0,0><br/>
-        where j^^="<"0,1,0><br/>
-        where k^^="<"0,0,1><br/>
+        We use &lt;&icirc;, &jcirc;, k^;> as our basis <br/>
+        where &icirc;=&lt;1,0,0><br/>
+        where &jcirc;=&lt;0,1,0><br/>
+        where k^;=&lt;0,0,1><br/>
     </p>
-    <h3>Why do we use i^^,j^^,k^^ as our basis?</h3>
+    <h3>Why do we use &icirc;,&jcirc;,k^; as our basis?</h3>
     <p>It's easy</p>
 
-    <h3>{i^^, j^^, k^^} is orthonormal (perpendicular and same length)</h3>
+    <h3>{&icirc;, &jcirc;, k^;} is orthonormal (perpendicular and same length)</h3>
 </div>
 
 <div>

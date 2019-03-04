@@ -29,7 +29,7 @@
         <p>We'll create two classes: The copy builtin ptr class, and extend that for the copied object class.</p>
 
         <pre  class='brush: cpp'>
-            template "<"typename T>
+            template &lt;typename T>
             class CBPtr     //copied built-in ptr
             {
                 public:
@@ -39,16 +39,16 @@
                     
                     ~CBPtr() { delete the_ptr; }
                     
-                    CBPtr(const CBPtr"<"T> &aCP): the_ptr(aCP.isNull()? 0 : new(*aCP.the_ptr)) {}
+                    CBPtr(const CBPtr&lt;T> &aCP): the_ptr(aCP.isNull()? 0 : new(*aCP.the_ptr)) {}
                     
-                    CBPtr"<"T> & operator =(T *p) 
+                    CBPtr&lt;T> & operator =(T *p) 
                     {
                         delete the_ptr;
                         the_ptr = p;
                         return *this;
                     } 
                     
-                    CBPtr"<"T> & operator =(const CBPtr"<"T> &rhs)
+                    CBPtr&lt;T> & operator =(const CBPtr&lt;T> &rhs)
                     {
                         if(the_ptr != rhs.the_ptr)
                         {
@@ -69,12 +69,12 @@
                         return save_ptr;
                     }
 
-                    freind bool operator ==(const CBPtr"<"T> &lhs, const CBPtr"<"T> &rhs)
+                    freind bool operator ==(const CBPtr&lt;T> &lhs, const CBPtr&lt;T> &rhs)
                     {
                         return this.the_ptr == rhs.the_ptr;
                     }
 
-                    freind bool operator !=(const CBPtr"<"T> &lhs, const CBPtr"<"T> &rhs)
+                    freind bool operator !=(const CBPtr&lt;T> &lhs, const CBPtr&lt;T> &rhs)
                     {
                         return !(this.the_ptr == rhs.the_ptr);
                     }
@@ -104,20 +104,20 @@
             {
                 public: 
                 
-                    COPtr() : CBPtr"<"T>() {}
+                    COPtr() : CBPtr&lt;T>() {}
                     
-                    COPtr(const COPtr"<"T> &src) : COPtr"<"T>(src) {}
+                    COPtr(const COPtr&lt;T> &src) : COPtr&lt;T>(src) {}
                     
-                    COPtr(T *just_newed) : COPtr"<"T>(just_newed) {}
+                    COPtr(T *just_newed) : COPtr&lt;T>(just_newed) {}
 
-                    COPtr"<"T> &operator = (T *rhs)
+                    COPtr&lt;T> &operator = (T *rhs)
                     {
-                        CBPtr"<"T>::operator=(rhs); return (*this);
+                        CBPtr&lt;T>::operator=(rhs); return (*this);
                     }
 
-                    COPtr"<"T> &operator=(const COPtr"<"T> &rhs)
+                    COPtr&lt;T> &operator=(const COPtr&lt;T> &rhs)
                     {
-                        CBPtr"<"T>::operator=(rhs); return (*this);
+                        CBPtr&lt;T>::operator=(rhs); return (*this);
                     }
 
                     T *operator->() const { return the_ptr; }
@@ -149,7 +149,7 @@
 
                 private:
                     float *ptr;
-                    Array"<"int> array;
+                    Array&lt;int> array;
             };
 
             void test_function() 
@@ -175,8 +175,8 @@
                     NonLeaker(const int size) : ptr(new float(0)), array(size) {}
                 
                 private:
-                    CBPtr"<"float> p;   // No leakage because this is a fully constructed object, way cool!
-                    Array"<"int> array;
+                    CBPtr&lt;float> p;   // No leakage because this is a fully constructed object, way cool!
+                    Array&lt;int> array;
             }
         </pre>
     </div>
