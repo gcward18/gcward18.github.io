@@ -1,0 +1,35 @@
+ <!-- Latest compiled and minified CSS -->
+ <head>
+        <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+<head>
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<div class="jumbotron text-center">
+        <h1>Matrix Class - Idea's</h1>
+</div>
+
+<ol>
+       <li> <pre class="brush: cpp">
+            my_vect&lt;my_vect &lt;T>> element;
+            // it's quick and easy;
+        </pre></li>
+        <li><pre class="brush: cpp">
+            my_vect&lt>* element;
+            element = new my_vect&lt;T>[rows];
+        </pre></li>
+        <li><pre class="brush: cpp">
+                T* element;
+                element = new T[rows*columns];
+                // terrible ptr arithmatic;
+        </pre></li>
+        <li><pre class="brush: cpp">
+                T** element;
+                element = new T[rows];
+                for(int i = 0; i &lt; rows; i++)
+                    elemetn[i] = new T[cols];
+        </pre></li>
+</ol>

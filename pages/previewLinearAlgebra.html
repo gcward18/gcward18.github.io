@@ -69,7 +69,7 @@
     <h3> A linear combination of vectors in a set, V, is any sum of constant multiples of these vectors</h3>
     <p>e.g. <br/> V= {a&sup1;,a<font face="Symbol">&#178;</font>,....,a<sup>n</sup>}<br/>The an arbitrary linear combination is <br/> all a&sup1;&alpha;;&sup1; + a<font face="Symbol">&#178;</font>&alpha;;<font face="Symbol">&#178;</font>+....+a<sup>n</sup>&alpha;;<sup>n</sup>, &forall; a &isin; &#x211d;</p>
     
-    <h3>One very impoortant property of vector spaces is linear independence.</h3>
+    <h3>One very important property of vector spaces is linear independence.</h3>
     <p>if there exists constans a_i, not all zero, such that &sdot; a&sup1;&alpha;&sup1; + a<font face="Symbol">&#178;</font>&alpha;<font face="Symbol">&#178;</font> +...+ a<sup>n</sup>&alpha;<sup>n</sup> = 0<br/>
         Then S is said to be linearly independent.<br/>
         Another way to characterize linear dependence is that at least one vector &isin; can be constructed as a linear combination of the other vectors
@@ -101,4 +101,73 @@
     <ol>
         <li>"n-tuples" are ordered sets of n-things</li>
     </ol>
+</div>
+
+<div>
+    <h2>Inner Product Space</h3>
+    <h3>Definition</h3>
+    <p>An inner product space on V is a real-valued function over V with</p>
+    <ol>
+        <li>(&alpha;,&alpha;) > 0, &alpha;&in;V, &alpha;&ne;&phi; &le;- the zero vector</li>
+        <li>(&alpha;,&beta;)=(&beta;,&alpha;), &alpha;,&beta;&in;V </li>
+        <li>(c&alpha;,&beta;) = c(&alpha;,&beta;), c&in;R</li>
+    </ol>
+</div>
+
+<div>
+        <h3>Theorm 1(Cauch- Schwarz Inequaltiy)</h3>
+        <p> For any &alpha;,&beta;&in;V, (&alpha;,&beta;)^2 <= |&alpha;|^2 |&beta;|^2<br />
+            wher |&alpha;| = sqrt((&alpha;,&beta;))
+        </p>
+</div>
+<div>
+    <h3>Theorm 2(Triangle Inequaltiy)</h3>
+    <p> For any 2 vectors &alpha;,&beta;&in;V, <br />
+        where |&alpha;+&beta;| &le; &alpha;+&beta;
+    </p>
+</div>
+
+<div>
+    <h3>Cauchy-schwarz Ineq.</h3>
+    <p>Proof: If &alpha;=&phi;, then (&alpha;,&beta;) = 0 and the ineq. holds <br />
+        Lets assume &alpha;&ne;&phi;, and let r&in;R -> r&ne;0<br />
+        0 &le;(r&alpha;+&beta;, r&alpha;+&beta;)<br />
+        =r<sup>2</sup>(&alpha;,&alpha;) 2r(&alpha;,&beta;) + (&beta;,&beta;)<br />
+        0 &le; ar<sup>2</sup> + 2br + r, quadratic r<br />
+        where a = (&alpha;,&alpha;), b=(&alpha;,&beta;), c=(&beta;,&beta;)<br />
+        Well, for a quadratic to be greater than or equal to zero it can have at most one real root <br />
+        Algebraiclly how? 4b<sup>2</sup>-4ac &le; 0, &rarr; b<sup>2</sup> &le;ac <br />
+        b<sup>2</sup>&le;ac<br />
+        (&alpha;, &beta;)<sup>2</sup> &le; (&alpha;,&alpha;)&sdot;(&beta;,&beta;)<br />
+        (&alpha;,&beta;)<sup>2</sup> &le; |&alpha;|<sup>2</sup>|&beta;|<sup>2</sup><br />
+    </p>
+</div>
+
+<div>
+        <h3>Important Fact</h3>
+        <p>Orthoganl bases for vector spaces are really important</p>
+        <h3>Definition</h3>
+        <p>Let V be an inner product space. &alpha;, &beta;&in;V <br />
+        are orthogonal if and only if (&alpha;,&beta;)=0 <br />
+        in R<sup>2</sup>, or R<sup>3</sup>, orthogonalality is typically thought of as <br />
+        perpendicularity.<br /><br /></p>
+
+        <h3>Why is an orthogonal basis so nice?</h3>
+        <p> Let S = {&alpha;<sub>1</sub>, ..., &alpha;<sub>n</sub>} be an orthonormal basis for vector space V. [This means <br />
+            that every pair of thes vectors are not only orthogonal, but eac one is of unit length.]<br />
+            Then, for any vector v&in;V there exists a<sub>1</sub>, ..., a<sub>n</sub> &exist;<br />
+            v = a<sub>1</sub>&alpha;<sub>1</sub> + a<sub>2</sub>&alpha;<sub>2</sub> + .... + a<sub>n</sub>&alpha;<sub>n</sub> <br />
+            So, why is S so important? <br />
+            It's really easy to find the a's <br/>
+            <br />
+            Notice: <br />
+            (v, &alpha;) = (a<sub>1</sub>&alpha;<sub>1</sub>, a<sub>2</sub>&alpha;<sub>2</sub>, ....., a<sub>n</sub>&alpha;<sub>n</sub>) <br />
+            = a<sub>1</sub>(&alpha;<sub>1</sub>, &alpha;<sub>1</sub>) + a<sub>2</sub>(&alpha;<sub>2</sub>, &alpha;<sub>1</sub>) + ...... + a<sub>n</sub>(&alpha;<sub>n</sub>, &alpha;<sub>1</sub>)<br />
+            = a<sub>1</sub> <br />
+            (v, a<sub>2</sub>) = a<sub>2</sub> <br />
+            (b, a<sub>n</sub>) = a<sub>n</sub> <br />
+            So, v^- = n&sum;i=1 (v<sub>1</sub>, &alpha;_i)&alpha;_i<br /> 
+    </p>
+    <h3>Gram Schmidt Process</h3>
+    <p>takes any basis and produces fromit an orthonomral basis</p>
 </div>
