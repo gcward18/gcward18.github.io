@@ -171,3 +171,88 @@
     <h3>Gram Schmidt Process</h3>
     <p>takes any basis and produces fromit an orthonomral basis</p>
 </div>
+
+<div>
+    <h3>Norm</h3>
+    <p>A norm is a way to measure something. We demand certain properties.</p>
+    <h3>Definition</h3>
+    <p>Let V be a vector space. N:V&rArr;&real; is a norm iff<br/>
+    <ol>
+        <li> N(v<sup>_</sup> &ge;0; N(v<sup>_</sup>)= 0 only if v<sup>_</sup>=0 <br/></li>
+        <li>
+            N(&alpha;v<sup>_</sup>) = |&alpha;|N(v<sup>_</sup>), &forall;v<sup>_</sup>&in;V, &alpha;&in;&real;<br/>
+        </li>
+        <li>N(v<sup>_</sup>+w<sup>_</sup>)&le;N(v<sup>_</sup>+N(w<sup>_</sup>), &ForAll;v<sup>_</sup>,w<sup>_</sup>&in;V</li>
+    </ol>
+    </p>
+    <h3>P-Norms</h3>
+    <p>||v||<sub>p</sub>= [&sum;<sup>n</sup><sub>1</sub>|x<sub>i</sub>|<sup>p</sup>]<sup>1/p</sup><sub>1</sub>, v<sup>_</sup>=&lt;x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>>, v<sup>_</sup>&in;&real;<sup>n</sup></p>
+
+</div>
+
+<div>
+    <h3>Unit Set/Unit ball</h3>
+    <p>In topology, we refer to the unit set as the "unit ball"</p>
+    <br />
+    <p>S<sub>p</sub>={x&in;&real;<sup>3</sup> | ||x||<sub>p</sub>=1} &rightarrow;</p>
+    <br />
+    <p>
+        <br/>
+        <img src="../link_img/unit_ball.png">
+        <img src="../link_img/superimposedunitball.png">
+    </p>
+</div>
+
+<div>
+    <h2>The Equivalence of Norms Therom</h2>
+    <h3>Most Important Result</h3>
+    <p>
+        Let N and M be norms in &real;<sup>n</sup>, then there &exist; constants c<sub>1</sub>, and c<sub>2</sub> &gt;0 such that <br/>
+        c<sub>1</sub>M(v<sup>_</sup>) &le; N(v<sup>_</sup>), &forall;v<sup>_</sup>&exist;V<br/>
+    </p>
+</div>
+
+<div>
+    <h3>Therom(a lemma, Continutiy of Norms)</h3>
+    <p>Let N(x<sup>_</sup>) be a norm on &real;<sup>n</sup>. Then, N(x<sup>_</sup>) is a <br/>
+        continous function of the components, x, s&prime;, of x<sup>_</sup> <br/>
+        x<sup>x</sup>&lt;x<sub>1</sub>,x<sub>2</sub>,....,x<sub>n</sub>><br/><br/>
+    </p>
+    <p><b>Proof:</b>
+        <br/>
+        Show if x<sub>i</sub>&approx;y<sub>i</sub>, then N(x<sup>_</sup>)&approx;N(y<sup>_</sup>)<br/>
+        We have: <br/>
+        (x<sup>_</sup> &minus; y<sup>_</sup>) &equals; &sum;<sup>n</sup><sub>i=1</sub>(x<sub>i</sub>&minus;y<sub>i</sub>)e<sub>i</sub><br/>
+        So, N(x<sup>_</sup> &minus; y<sup>_</sup>) &le;  &sum;<sup>n</sup><sub>i=1</sub>|x<sub>i</sub>&minus;y<sub>i</sub>|N(e<sub>i</sub>) &le;&sum;<sup>n</sup><sub>i=1</sub>max{|x<sub>i</sub>&minus;y<sub>i</sub>|}N(e<sub>i</sub>)<br/>
+        &le;||x<sup>_</sup> &minus; y<sup>_</sup>||<sub>&infin;</sub>&sum;<sup>n</sup><sub>i=1</sub>N(e<sub>i</sub>)<br/>
+    </p>
+    <p><br/>
+        Now using the Reverse Triangle Inequality:<br/>
+        |N(x)-N(y)| &le; N(x<sup>_</sup> &minus; y<sup>_</sup>) &le;||x<sup>_</sup> &minus; y<sup>_</sup>||<sub>&infin;</sub>c, c = sub>&infin;</sub>&sum;<sup>n</sup><sub>i=1</sub>N(e<sub>i</sub>)<br/>
+        or<br/>
+        |N(x)-N(y<sub>_</sub>)| &le; c||x<sup>_</sup> &minus; y<sup>_</sup>||<sub>&infin;</sub><br/>
+    </p>
+</div>
+
+<div>
+    <h3>Proof</h3>
+    <p>It is sufficent to N arbirary and M the &infin;-norm. So, show &Exists;c<sub>1</sub>, c<sub>2</sub> &gt; 0 <br/>
+        c<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub> &le; N(x<sup>_</sup>)&le; c<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        From the lemma, just let y<sup>_</sup>=0. Then we have <br/>
+        |N(x)-N(y)| = |N(x)| = N(x) &le; c<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        <br/>
+        But every norm is bounded away from 0. <br/>
+        So, there has to exist a constanc c<sub>1</sub>&gt;0 &Exists; c<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub>&ge;0<br/>
+        c<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub>&le; N(x<sup>_</sup>)&le;c<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        c<sub>3</sub>||x<sup>_</sup>||<sub>&infin;</sub>&le; N(x<sup>_</sup>)&le;c<sub>4</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        k<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub>&le; N(x<sup>_</sup>)&le;k<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        
+    </p>
+    <p>
+        <br/>
+        But this means: If, one norm "goes to zero" meausuring a a changing quantity, then any other norm will also.<br/>
+        V<sub>n</sub>&rAarr;V<br/>
+        n&rAarr;&infin;<br/>
+    </p>
+</div>
+
