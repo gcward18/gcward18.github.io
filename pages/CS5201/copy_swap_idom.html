@@ -1,47 +1,48 @@
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" type="text/css" href="css/classes.css">
-<div class="copy_swap">
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link href="css/shCore.css" rel="stylesheet" type="text/css" />
         <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="../../css/classes.css">
     </head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <div class="jumbotron text-center">
-            <h1>The copy and swap idom - to overload the assignment operator</h1>
+            <h1>THE COPY SWAP IDIOM:<br/> to overload the assignment operator</h1>
     </div>
 
+<div class="copy_swap">
     <div name="slide">
         <h2>The assignment operator</h2>
         <p>In the array class we had </p>
-        <pre  class='brush: cpp'>
-            Array &Array::operator =(const Array& src)
-            {
-                if(ptr_to_data != src.ptr_to_data)
-                {
-                    setSize(s.m_size);
-                    for(int i = 0; i&lt; m_size; i++)
-                    {
-                        ptr_to_data[i] = src.ptr_to_data[i];
-                    }
-                }
-                return (*this);
-            }
-        </pre>
-
+<b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+Array &Array::operator =(const Array& src)
+{
+    if(ptr_to_data != src.ptr_to_data)
+    {
+        setSize(s.m_size);
+        for(int i = 0; i &lt; m_size; i++)
+        {
+            ptr_to_data[i] = src.ptr_to_data[i];
+        }
+    }
+    return (*this);
+}
+</pre>
+</b>
         <p>Problems with the foregoing code are</p>
         <ol>
             <li>The self-assign check - mostly just an exercise; waste of time</li>
             <li>THe stroll down the array - this we've alread coded</li>
         </ol>
 
-        <p>Answer:</p>
-        <pre  class='brush: cpp'>
-            Array &Array::operator =(Array src)
-            {
-                swap(*this, src);
-                return (*this);
-            }
-        </pre>
+<p>Answer:</p>
+<b><pre  class='brush: cpp' style="padding: 2%; width:500px; height: 15%; margin-left: 5%;">
+Array &Array::operator =(Array src)
+{
+    swap(*this, src);
+    return (*this);
+}
+</pre></b>
         <p>This truly amazing code!</p>
 
         <p>What is so important her is that you be very careful about the swap that you use!</p>
@@ -54,35 +55,35 @@
         </ol>
         <p>We assert that it really should be the "big four", WRITE YOUR OWN SWAP</p>
 
-        <pre class="brush: cpp">
-            class Array
-            {
-                public:
-                    friend void swap(Array &A1, Array &A2);
-                    {
-                        std::swap(A1.m_size, A2.m_size);
-                        std::swap(A1.ptr_to_data, A2.ptr_to_data);
-                    }
-            }
-        </pre>
+<b><pre class="brush: cpp" style="padding: 2%; width:500px; height: 25%; margin-left: 5%;">
+class Array
+{
+    public:
+        friend void swap(Array &A1, Array &A2);
+        {
+            std::swap(A1.m_size, A2.m_size);
+            std::swap(A1.ptr_to_data, A2.ptr_to_data);
+        }
+}
+</pre></b>
         <p>
-            Why! Why make you own swap? WHy not use the std swap in the first place? Well, when the std swap swaps, it
+            Why! Why make you own swap? Why not use the std swap in the first place? Well, when the std::swap() swaps, it<br/>
             uses the assignment operator! That is wat you're already defining!!!
         </p>
 
         <h2>So, make your own swap:</h2>
-        <p>The next point to understand: THe pass by value/copy. Why? Let the compiler make the copy for you using the 
+        <p>The next point to understand: The pass by value/copy. Why? Let the compiler make the copy for you using the <br/>
             copy constructor
         </p>
-
-        <pre class="brush: cpp">
-            Array &Array::operator=(Array src)
-            {
-                swap(*this, src);
-                return (*this);
-            } // way cool code!
-        </pre>
-
+<b>
+<pre class="brush: cpp" style="padding: 2%; width:500px; height: 15%; margin-left: 5%;">
+Array &Array::operator=(Array src)
+{
+    swap(*this, src);
+    return (*this);
+} // way cool code!
+</pre>
+</b>
         
     </div>
 </div>

@@ -1,8 +1,26 @@
 .copy_swap
 {
-    background-color: lightgreen;
+    background-color: white;
+    margin: auto;
+    text-align: left;
+    margin-left: 10%;
+    margin-right: auto;
+}
+.jumbotron
+{
+    background-color: lightgrey;
+}
+.body
+{
+
+    background-color: lightgrey;
 }
 .slide
 {
-    background-color: lightgreen
+    background-color: white;
 }
+/* .brush
+{
+    background-color: darkslategray;
+    background: wheat;
+} */
