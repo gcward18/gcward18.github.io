@@ -31,8 +31,14 @@ color: #f1f1f1;
 .main {
 margin-left: 160px; /* Same as the width of the sidebar */
 padding: 0% 20%;
+background: beige;
 }
 
+/* .main.container {
+} */
+.jumbotron{
+    background: beige;
+}
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
 .sidenav {padding-top: 15px;}
