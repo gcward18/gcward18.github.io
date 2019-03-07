@@ -1,48 +1,48 @@
 <!-- Latest compiled and minified CSS -->
 <head>
-    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
-    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <link href = "css/shCore.css" rel = "stylesheet" type = "text/css" />
+    <link href = "css/shThemeDefault.css" rel = "stylesheet" type = "text/css" />
 </head>
-<style type="text/css">
-    ol{
+<style type = "text/css">
+    ol { 
         padding: 20px
-    }
-    li{
+     } 
+    li { 
         padding: 5px
-    }
-    p{
+     } 
+    p { 
         margin-left: 5px
-    }
+     } 
 </style>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<div class="jumbotron text-center">
-        <img src="../doc_img/maxresdefault.jpg" width="60%" height="40%">
-        <img src="../doc_img/machine learning.png" width="15%" height="40%">
+ <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<div class = "jumbotron text-center">
+        <img src = "../../doc_img/maxresdefault.jpg" width = "60%" height = "40%">
+        <img src = "../../doc_img/machine learning.png" width = "15%" height = "40%">
 </div>
 
-<div style="margin-left: 40px">
+<div style = "margin-left: 40px">
     <h3>Definition Vector Space:</h3>
     <ol>
-        <p>is a set of Vectors (v) on which is defined a set of operation, &plus; and &sdot; , vector addition and scalar multiplication,
+        <p>is a set of Vectors ( v ) on which is defined a set of operation, &plus; and &sdot; , vector addition and scalar multiplication,
             in conjunction with a set of scalars. 
         </p>
         <li>V is closed under &plus;</li>
         <ol>
-                <li>a &plus; b = b&plus;a, &forall; a,b &isin; V</li>
-                <li> (a&plus;b)&plus;g = a&plus;(b&plus;g), &forall; a,b,g &isin; V</li>
-                <li> a&plus;0 = 0&plus;a = a&lt;, all a &isin; V, and 0 &isin; V, there has to be a "zero" element &isin; V </li>
-                <li> a&plus;0 = 0&plus;a = a&lt;, all a &isin; V, and 0 &isin; V, there has to be a "zero" element &isin; V </li>
-                <li> all a &isin; V &exist; - a &isin; V such that a&sdot;-a = -a&plus; = 0 </li>
-                <li> c&sdot;(a&plus;b) = c&sdot;a&plus;c&sdot;b, &forall; a,b &isin; V, c is a scalar</li>
-                <li> (c&plus;d)&sdot;a = c&sdot;a&plus;d&sdot;a , &forall; c,d &isin; V,a is a scalar</li>
-                <li> c&sdot;d&sdot;a = (cd)&sdot;a , &forall; c,d a, V</li>
-                <li> 1&sdot;a=a&sdot;1, &forall; a &isin; V</li>
+                <li>a &plus; b  =  b&plus;a, &forall; a,b &isin; V</li>
+                <li> ( a&plus;b )&plus;g  =  a&plus;( b&plus;g ), &forall; a,b,g &isin; V</li>
+                <li> a&plus;0  =  0&plus;a  =  a&lt;, all a &isin; V, and 0 &isin; V, there has to be a "zero" element &isin; V </li>
+                <li> a&plus;0  =  0&plus;a  =  a&lt;, all a &isin; V, and 0 &isin; V, there has to be a "zero" element &isin; V </li>
+                <li> all a &isin; V &exist; - a &isin; V such that a&sdot;-a  =  -a&plus;  =  0 </li>
+                <li> c&sdot;( a&plus;b )  =  c&sdot;a&plus;c&sdot;b, &forall; a,b &isin; V, c is a scalar</li>
+                <li> ( c&plus;d )&sdot;a  =  c&sdot;a&plus;d&sdot;a , &forall; c,d &isin; V,a is a scalar</li>
+                <li> c&sdot;d&sdot;a  =  ( cd )&sdot;a , &forall; c,d a, V</li>
+                <li> 1&sdot;a = a&sdot;1, &forall; a &isin; V</li>
         </ol>
         <h3>Most often, the set of scalars is  &#x211d;</h3>
     </ol>
 
     <h2>Examples:</h2>
-    <div style="margin-left: 40px">
+    <div style = "margin-left: 40px">
         <p>Let V be the set of real n-tuples<sup>1</sup>, and the set of scalars  &#x211d;<sup>1</sup></p>
         <h3>Is this a vector space? What is &plus; and &sdot; mean here?</h3>
         <p>Let's use the "usual" meaning of both</p>
@@ -51,9 +51,9 @@
                 scalar multiplication results in an n-tuple whose components are the product of the scalar multiple and that component. 
                 <br/>
                 <b>Example</b> <br />
-                u=&lt;x,y,z> , v=&lt;x<font face="Symbol">&#178;</font>, y<font face="Symbol">&#178;</font>, z<font face="Symbol">&#178;</font>> c &isin; &#x211d; <br />
-                u&plus;v = u + v = &lt;x&sup1; + x<font face="Symbol">&#178;</font>, y&sup1; + y<font face="Symbol">&#178;</font>, z&sup1; + z<font face="Symbol">&#178;</font> ><br />
-                c&sdot;v = cv = &lt;cx<font face="Symbol">&#178;</font>, cy<font face="Symbol">&#178;</font>, cz<font face="Symbol">&#178;</font>> <br />
+                u = &lt;x,y,z> , v = &lt;x<font face = "Symbol">&#178;</font>, y<font face = "Symbol">&#178;</font>, z<font face = "Symbol">&#178;</font>> c &isin; &#x211d; <br />
+                u&plus;v  =  u + v  =  &lt;x&sup1; + x<font face = "Symbol">&#178;</font>, y&sup1; + y<font face = "Symbol">&#178;</font>, z&sup1; + z<font face = "Symbol">&#178;</font> ><br />
+                c&sdot;v  =  cv  =  &lt;cx<font face = "Symbol">&#178;</font>, cy<font face = "Symbol">&#178;</font>, cz<font face = "Symbol">&#178;</font>> <br />
                 IS VECTOR SPACE<br/>
             </li>
             <li>
@@ -74,90 +74,90 @@
 
 
     <h2>Subspaces</h2>
-    <div style="margin-left: 40px">
+    <div style = "margin-left: 40px">
         <h3>S of vector <b>subset</b>, V, is a subset of the vectors V with the same operations.</h3>
         <p>Futher more, to show S as a subset of V is a vector space, it is only necessary to show closure
             properties
         </p>
 
         <h3> A linear combination of vectors in a set, V, is any sum of constant multiples of these vectors</h3>
-        <p>e.g. <br/> V= {a<sub>1</sub>;,a<sub>n</sub>,....,a<sub>n</sub>}<br/>The an arbitrary linear combination is <br/> all a<sub>1</sub>;&alpha;;<sub>1</sub>; + a<sub>2</sub>&alpha;<sub>2</sub>+....+a<sub>n</sub>&alpha;;<sub>n</sub>, &forall; a &isin; &#x211d;</p>
+        <p>e.g. <br/> V =   { a<sub>1</sub>;,a<sub>n</sub>,....,a<sub>n</sub> } <br/>The an arbitrary linear combination is <br/> all a<sub>1</sub>;&alpha;;<sub>1</sub>; + a<sub>2</sub>&alpha;<sub>2</sub>+....+a<sub>n</sub>&alpha;;<sub>n</sub>, &forall; a &isin; &#x211d;</p>
         
         <h3>One very important property of vector spaces is linear independence.</h3>
-        <p>if there exists constans a<sub>i</sub>, not all zero, such that &sdot; a&sup1;&alpha;&sup1; + a<sub>n</sub>&alpha;<sub>n</sub>+...+ a<sub>n</sub>&alpha;<sub>n</sub> = 0<br/>
+        <p>if there exists constans a<sub>i</sub>, not all zero, such that &sdot; a&sup1;&alpha;&sup1; + a<sub>n</sub>&alpha;<sub>n</sub>+...+ a<sub>n</sub>&alpha;<sub>n</sub>  =  0<br/>
             Then S is said to be linearly independent.<br/>
             Another way to characterize linear dependence is that at least one vector &isin; can be constructed as a linear combination of the other vectors
         </p>
     </div>
 
     <h3>Definition:</h3> 
-    <div style="margin-left: 40px">
-        <p>If a set S={&alpha;<sub>1</sub>;,...,&alpha;<sub>n</sub>} <b>spans</b> a vector space V, then any vector in V can be written as a linear combination of some 
+    <div style = "margin-left: 40px">
+        <p>If a set S =  { &alpha;<sub>1</sub>;,...,&alpha;<sub>n</sub> }  <b>spans</b> a vector space V, then any vector in V can be written as a linear combination of some 
             subset of S.</p>
     </div>    
 
     <h3>Definition: </h3>
-    <div style="margin-left:40px">
-            <p>If a set S spans a vector space V a<sup>n</sup> is linearly independent then S is called basis for V. (The number of vectors in a basis for V is called it's dimension)
+    <div style = "margin-left:40px">
+            <p>If a set S spans a vector space V a<sup>n</sup> is linearly independent then S is called basis for V. ( The number of vectors in a basis for V is called it's dimension )
             <br/><br/>A basis for V forms a set of basic building blocks for V</p>
 
-        <h3>For  &#x211d;<sup>3</sup> = &#x211d; x &#x211d;  x &#x211d; or 3-dimensional space</h3>
-        <p>(ordered tuples)<br/>
+        <h3>For  &#x211d;<sup>3</sup>  =  &#x211d; x &#x211d;  x &#x211d; or 3-dimensional space</h3>
+        <p>( ordered tuples )<br/>
             We use &lt;&icirc;, &jcirc;, &ucirc> as our basis <br/>
-            where &icirc;=&lt;1,0,0><br/>
-            where &jcirc;=&lt;0,1,0><br/>
-            where &ucirc;=&lt;0,0,1><br/>
+            where &icirc; = &lt;1,0,0><br/>
+            where &jcirc; = &lt;0,1,0><br/>
+            where &ucirc; = &lt;0,0,1><br/>
         </p>
         <h3>Why do we use &icirc;,&jcirc;,&ucirc as our basis?</h3> 
         <p>It's easy</p>
 
-        <h3>{&icirc;, &jcirc;, &ucirc} is orthonormal (perpendicular and same length)</h3>
+        <h3> { &icirc;, &jcirc;, &ucirc }  is orthonormal ( perpendicular and same length )</h3>
     </div>
 
-    <div style="margin-left: 40px">
+    <div style = "margin-left: 40px">
         <ol>
             <li>"n-tuples" are ordered sets of n-things</li>
         </ol>
     </div>
 
     <h2>Inner Product Space</h3>
-    <div style="margin-left: 40px">
+    <div style = "margin-left: 40px">
         <h3>Definition</h3>
         <p>An inner product space on V is a real-valued function over V with</p>
         <ol>
-            <li>(&alpha;,&alpha;) > 0, &alpha;&in;V, &alpha;&ne;&phi; &le;- the zero vector</li>
-            <li>(&alpha;,&beta;)=(&beta;,&alpha;), &alpha;,&beta;&in;V </li>
-            <li>(c&alpha;,&beta;) = c(&alpha;,&beta;), c&in; &#x211d;</li>
+            <li>( &alpha;,&alpha; ) > 0, &alpha;&in;V, &alpha;&ne;&phi; &le;- the zero vector</li>
+            <li>( &alpha;,&beta; ) = ( &beta;,&alpha; ), &alpha;,&beta;&in;V </li>
+            <li>( c&alpha;,&beta; )  =  c( &alpha;,&beta; ), c&in; &#x211d;</li>
         </ol>
     </div>
 
-    <h3>Theorm 1(Cauch- Schwarz Inequaltiy)</h3>
-    <div style="margin-left: 40px">
-            <p> For any &alpha;,&beta;&in;V, (&alpha;,&beta;)<sup>2</sup> &lt;= |&alpha;<sup>2</sup>||&beta;<sup>2</sup>|<br />
-                wher |&alpha;| = sqrt((&alpha;,&beta;))
+    <h3>Theorm 1( Cauch- Schwarz Inequaltiy )</h3>
+    <div style = "margin-left: 40px">
+            <p> For any &alpha;,&beta;&in;V, ( &alpha;,&beta; )<sup>2</sup> &lt; =  |&alpha;<sup>2</sup> || &beta;<sup>2</sup>|<br />
+                wher |&alpha;|  =  sqrt( ( &alpha;,&beta; ) )
             </p>
     </div>
-    <h3>Theorm 1(Cauch- Schwarz Inequaltiy)</h3>
-    <div style="margin-left: 40px">
+    <h3>Theorm 1( Cauch- Schwarz Inequaltiy )</h3>
+    <div style = "margin-left: 40px">
         <p> For any 2 vectors &alpha;,&beta;&in;V, <br />
             where |&alpha;+&beta;| &le; &alpha;+&beta;
         </p>
     </div>
 
     <h3>Cauchy-schwarz Ineq.</h3>
-    <div style="margin-left: 40px">
-        <p>Proof: If &alpha;=&phi;, then (&alpha;,&beta;) = 0 and the ineq. holds <br />
+    <div style = "margin-left: 40px">
+        <p>Proof: If &alpha; = &phi;, then ( &alpha;,&beta; )  =  0 and the ineq. holds <br />
             Lets assume &alpha;&ne;&phi;, and let r&in; &#x211d; -> r&ne;0<br />
-            0 &le;(r&alpha;+&beta;, r&alpha;+&beta;)<br />
-            =r<sup>2</sup>(&alpha;,&alpha;) 2r(&alpha;,&beta;) + (&beta;,&beta;)<br />
+            0 &le;( r&alpha;+&beta;, r&alpha;+&beta; )<br />
+             = r<sup>2</sup>( &alpha;,&alpha; ) 2r( &alpha;,&beta; ) + ( &beta;,&beta; )<br />
             0 &le; ar<sup>2</sup> + 2br + r, quadratic r<br />
-            where a = (&alpha;,&alpha;), b=(&alpha;,&beta;), c=(&beta;,&beta;)<br />
+            where a  =  ( &alpha;,&alpha; ), b = ( &alpha;,&beta; ), c = ( &beta;,&beta; )<br />
             Well, for a quadratic to be greater than or equal to zero it can have at most one real root <br />
             Algebraiclly how?<br/>
              4b<sup>2</sup>-4ac &le; 0, &rarr; b<sup>2</sup> &le;ac <br />
             b<sup>2</sup>&le;ac<br />
-            (&alpha;, &beta;)<sup>2</sup> &le; (&alpha;,&alpha;)&sdot;(&beta;,&beta;)<br />
-            (&alpha;,&beta;)<sup>2</sup> &le; |&alpha;|<sup>2</sup>|&beta;|<sup>2</sup><br />
+            ( &alpha;, &beta; )<sup>2</sup> &le; ( &alpha;,&alpha; )&sdot;( &beta;,&beta; )<br />
+            ( &alpha;,&beta; )<sup>2</sup> &le; |&alpha;|<sup>2</sup>|&beta;|<sup>2</sup><br />
         </p>
     </div>
 
@@ -166,25 +166,25 @@
         <p>Orthoganl bases for vector spaces are really important</p>
         <h3>Definition</h3>
         <p>Let V be an inner product space. &alpha;, &beta;&in;V <br />
-        are orthogonal if and only if (&alpha;,&beta;)=0 <br />
+        are orthogonal if and only if ( &alpha;,&beta; ) = 0 <br />
         in R<sup>2</sup>, or R<sup>3</sup>, orthogonalality is typically thought of as <br />
         perpendicularity.<br /><br /></p>
 
         <h3>Why is an orthogonal basis so nice?</h3>
-        <p> Let S = {&alpha;<sub>1</sub>, ..., &alpha;<sub>n</sub>} be an orthonormal basis for vector space V. [This means <br />
+        <p> Let S  =   { &alpha;<sub>1</sub>, ..., &alpha;<sub>n</sub> }  be an orthonormal basis for vector space V. [This means <br />
             that every pair of thes vectors are not only orthogonal, but eac one is of unit length.]<br />
             Then, for any vector v&in;V there exists a<sub>1</sub>, ..., a<sub>n</sub> &exist;<br />
-            v = a<sub>1</sub>&alpha;<sub>1</sub> + a<sub>2</sub>&alpha;<sub>2</sub> + .... + a<sub>n</sub>&alpha;<sub>n</sub> <br />
+            v  =  a<sub>1</sub>&alpha;<sub>1</sub> + a<sub>2</sub>&alpha;<sub>2</sub> + .... + a<sub>n</sub>&alpha;<sub>n</sub> <br />
             So, why is S so important? <br />
             It's really easy to find the a's <br/>
             <br />
             Notice: <br />
-            (v, &alpha;) = (a<sub>1</sub>&alpha;<sub>1</sub>, a<sub>2</sub>&alpha;<sub>2</sub>, ....., a<sub>n</sub>&alpha;<sub>n</sub>) <br />
-            = a<sub>1</sub>(&alpha;<sub>1</sub>, &alpha;<sub>1</sub>) + a<sub>2</sub>(&alpha;<sub>2</sub>, &alpha;<sub>1</sub>) + ...... + a<sub>n</sub>(&alpha;<sub>n</sub>, &alpha;<sub>1</sub>)<br />
-            = a<sub>1</sub> <br />
-            (v, a<sub>2</sub>) = a<sub>2</sub> <br />
-            (b, a<sub>n</sub>) = a<sub>n</sub> <br />
-            So, v^- = n&sum;i=1 (v<sub>1</sub>, &alpha;<sub>i</sub>)&alpha;<sub>i</sub><br /> 
+            ( v, &alpha; )  =  ( a<sub>1</sub>&alpha;<sub>1</sub>, a<sub>2</sub>&alpha;<sub>2</sub>, ....., a<sub>n</sub>&alpha;<sub>n</sub> ) <br />
+             =  a<sub>1</sub>( &alpha;<sub>1</sub>, &alpha;<sub>1</sub> ) + a<sub>2</sub>( &alpha;<sub>2</sub>, &alpha;<sub>1</sub> ) + ...... + a<sub>n</sub>( &alpha;<sub>n</sub>, &alpha;<sub>1</sub> )<br />
+             =  a<sub>1</sub> <br />
+            ( v, a<sub>2</sub> )  =  a<sub>2</sub> <br />
+            ( b, a<sub>n</sub> )  =  a<sub>n</sub> <br />
+            So, v^-  =  n&sum;i = 1 ( v<sub>1</sub>, &alpha;<sub>i</sub> )&alpha;<sub>i</sub><br /> 
     </p>
     <h3>Gram Schmidt Process</h3>
     <p>takes any basis and produces fromit an orthonomral basis</p>
@@ -196,15 +196,15 @@
     <h3>Definition</h3>
     <p>Let V be a vector space. N:V&rArr;&real; is a norm iff<br/>
     <ol>
-        <li> N(v<sup>_</sup> &ge;0; N(v<sup>_</sup>)= 0 only if v<sup>_</sup>=0 <br/></li>
+        <li> N( v&#x0304;  &ge;0; N( v&#x0304;  ) =  0 only if v&#x0304;  = 0 <br/></li>
         <li>
-            N(&alpha;v<sup>_</sup>) = |&alpha;|N(v<sup>_</sup>), &forall;v<sup>_</sup>&in;V, &alpha;&in;&real;<br/>
+            N( &alpha;v&#x0304;  )  =  |&alpha;|N( v&#x0304;  ), &forall;v&#x0304; &in;V, &alpha;&in;&real;<br/>
         </li>
-        <li>N(v<sup>_</sup>+w<sup>_</sup>)&le;N(v<sup>_</sup>+N(w<sup>_</sup>), &ForAll;v<sup>_</sup>,w<sup>_</sup>&in;V</li>
+        <li>N( v&#x0304; +w&#x0304;  )&le;N( v&#x0304; +N( w&#x0304;  ), &ForAll;v&#x0304; ,w&#x0304; &in;V</li>
     </ol>
     </p>
     <h3>P-Norms</h3>
-    <p>||v||<sub>p</sub>= [&sum;<sup>n</sup><sub>1</sub>|x<sub>i</sub>|<sup>p</sup>]<sup>1/p</sup><sub>1</sub>, v<sup>_</sup>=&lt;x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>>, v<sup>_</sup>&in;&real;<sup>n</sup></p>
+    <p> || v || <sub>p</sub> =  [&sum;<sup>n</sup><sub>1</sub>|x<sub>i</sub>|<sup>p</sup>]<sup>1/p</sup><sub>1</sub>, v&#x0304;  = &lt;x<sub>1</sub>,x<sub>2</sub>,...,x<sub>n</sub>>, v&#x0304; &in;&real;<sup>n</sup></p>
 
 </div>
 
@@ -212,12 +212,12 @@
     <h3>Unit Set/Unit ball</h3>
     <p>In topology, we refer to the unit set as the "unit ball"</p>
     <br />
-    <p>S<sub>p</sub>={x&in;&real;<sup>3</sup> | ||x||<sub>p</sub>=1} &rightarrow;</p>
+    <p>S<sub>p</sub> =  { x&in;&real;<sup>3</sup> |  || x || <sub>p</sub> = 1 }  &rightarrow;</p>
     <br />
     <p>
         <br/>
-        <img src="../link_img/unit_ball.png">
-        <img src="../link_img/superimposedunitball.png">
+        <img src = "../../link_img/unit_ball.png">
+        <img src = "../../link_img/superimposedunitball.png">
     </p>
 </div>
 
@@ -226,44 +226,44 @@
     <h3>Most Important Result</h3>
     <p>
         Let N and M be norms in &real;<sup>n</sup>, then there &exist; constants c<sub>1</sub>, and c<sub>2</sub> &gt;0 such that <br/>
-        c<sub>1</sub>M(v<sup>_</sup>) &le; N(v<sup>_</sup>), &forall;v<sup>_</sup>&exist;V<br/>
+        c<sub>1</sub>M( v&#x0304;  ) &le; N( v&#x0304;  ), &forall;v&#x0304; &exist;V<br/>
     </p>
 </div>
 
 <div>
-    <h3>Therom(a lemma, Continutiy of Norms)</h3>
-    <p>Let N(x<sup>_</sup>) be a norm on &real;<sup>n</sup>. Then, N(x<sup>_</sup>) is a <br/>
-        continous function of the components, x, s&prime;, of x<sup>_</sup> <br/>
+    <h3>Therom( a lemma, Continutiy of Norms )</h3>
+    <p>Let N( x&#x0304;  ) be a norm on &real;<sup>n</sup>. Then, N( x&#x0304;  ) is a <br/>
+        continous function of the components, x, s&prime;, of x&#x0304;  <br/>
         x<sup>x</sup>&lt;x<sub>1</sub>,x<sub>2</sub>,....,x<sub>n</sub>><br/><br/>
     </p>
     <p><b>Proof:</b>
         <br/>
-        Show if x<sub>i</sub>&approx;y<sub>i</sub>, then N(x<sup>_</sup>)&approx;N(y<sup>_</sup>)<br/>
+        Show if x<sub>i</sub>&approx;y<sub>i</sub>, then N( x&#x0304;  )&approx;N( y&#x0304;  )<br/>
         We have: <br/>
-        (x<sup>_</sup> &minus; y<sup>_</sup>) &equals; &sum;<sup>n</sup><sub>i=1</sub>(x<sub>i</sub>&minus;y<sub>i</sub>)e<sub>i</sub><br/>
-        So, N(x<sup>_</sup> &minus; y<sup>_</sup>) &le;  &sum;<sup>n</sup><sub>i=1</sub>|x<sub>i</sub>&minus;y<sub>i</sub>|N(e<sub>i</sub>) &le;&sum;<sup>n</sup><sub>i=1</sub>max{|x<sub>i</sub>&minus;y<sub>i</sub>|}N(e<sub>i</sub>)<br/>
-        &le;||x<sup>_</sup> &minus; y<sup>_</sup>||<sub>&infin;</sub>&sum;<sup>n</sup><sub>i=1</sub>N(e<sub>i</sub>)<br/>
+        ( x&#x0304;  &minus; y&#x0304;  ) &equals; &sum;<sup>n</sup><sub>i = 1</sub>( x<sub>i</sub>&minus;y<sub>i</sub> )e<sub>i</sub><br/>
+        So, N( x&#x0304;  &minus; y&#x0304;  ) &le;  &sum;<sup>n</sup><sub>i = 1</sub>|x<sub>i</sub>&minus;y<sub>i</sub>|N( e<sub>i</sub> ) &le;&sum;<sup>n</sup><sub>i = 1</sub>max { |x<sub>i</sub>&minus;y<sub>i</sub>| } N( e<sub>i</sub> )<br/>
+        &le; || x&#x0304;  &minus; y&#x0304;  || <sub>&infin;</sub>&sum;<sup>n</sup><sub>i = 1</sub>N( e<sub>i</sub> )<br/>
     </p>
     <p><br/>
         Now using the Reverse Triangle Inequality:<br/>
-        |N(x)-N(y)| &le; N(x<sup>_</sup> &minus; y<sup>_</sup>) &le;||x<sup>_</sup> &minus; y<sup>_</sup>||<sub>&infin;</sub>c, c = sub>&infin;</sub>&sum;<sup>n</sup><sub>i=1</sub>N(e<sub>i</sub>)<br/>
+        |N( x )-N( y )| &le; N( x&#x0304;  &minus; y&#x0304;  ) &le; || x&#x0304;  &minus; y&#x0304;  || <sub>&infin;</sub>c, c  =  &sum;<sup>n</sup><sub>&infin;</sub><sub>i = 1</sub>N( e<sub>i</sub> )<br/>
         or<br/>
-        |N(x)-N(y<sub>_</sub>)| &le; c||x<sup>_</sup> &minus; y<sup>_</sup>||<sub>&infin;</sub><br/>
+        |N( x )-N( y&#x0304;  )| &le; c || x&#x0304;  &minus; y&#x0304;  || <sub>&infin;</sub><br/>
     </p>
 </div>
 
 <div>
     <h3>Proof</h3>
     <p>It is sufficent to N arbirary and M the &infin;-norm. So, show &Exists;c<sub>1</sub>, c<sub>2</sub> &gt; 0 <br/>
-        c<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub> &le; N(x<sup>_</sup>)&le; c<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
-        From the lemma, just let y<sup>_</sup>=0. Then we have <br/>
-        |N(x)-N(y)| = |N(x)| = N(x) &le; c<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        c<sub>1</sub> || x&#x0304;  || <sub>&infin;</sub> &le; N( x&#x0304;  )&le; c<sub>2</sub> || x&#x0304;  || <sub>&infin;</sub><br/>
+        From the lemma, just let y&#x0304;  = 0. Then we have <br/>
+        |N( x )-N( y )|  =  |N( x )|  =  N( x ) &le; c<sub>2</sub> || x&#x0304;  || <sub>&infin;</sub><br/>
         <br/>
         But every norm is bounded away from 0. <br/>
-        So, there has to exist a constanc c<sub>1</sub>&gt;0 &Exists; c<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub>&ge;0<br/>
-        c<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub>&le; N(x<sup>_</sup>)&le;c<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
-        c<sub>3</sub>||x<sup>_</sup>||<sub>&infin;</sub>&le; N(x<sup>_</sup>)&le;c<sub>4</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
-        k<sub>1</sub>||x<sup>_</sup>||<sub>&infin;</sub>&le; N(x<sup>_</sup>)&le;k<sub>2</sub>||x<sup>_</sup>||<sub>&infin;</sub><br/>
+        So, there has to exist a constanc c<sub>1</sub>&gt;0 &Exists; c<sub>1</sub> || x&#x0304;  || <sub>&infin;</sub>&ge;0<br/>
+        c<sub>1</sub> || x&#x0304;  || <sub>&infin;</sub>&le; N( x&#x0304;  )&le;c<sub>2</sub> || x&#x0304;  || <sub>&infin;</sub><br/>
+        c<sub>3</sub> || x&#x0304;  || <sub>&infin;</sub>&le; N( x&#x0304;  )&le;c<sub>4</sub> || x&#x0304;  || <sub>&infin;</sub><br/>
+        k<sub>1</sub> || x&#x0304;  || <sub>&infin;</sub>&le; N( x&#x0304;  )&le;k<sub>2</sub> || x&#x0304;  || <sub>&infin;</sub><br/>
         
     </p>
     <p>
