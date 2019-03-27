@@ -208,4 +208,130 @@ class Acme130: public VoltageSupply
             by flagging an error if you have forgotten to implment a function in some derived class.</li>
     </ul>
 </p>
+
+    <h3>So....</h3>
+    <p>
+        Any class can be derived from two interfaces. Lets write a GPIBInstrument interface base to represent any kind of<br/> 
+        GPIB instrument
+    </p>
+    <b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+class GPIBInstrument
+{
+    public:
+        virtual void send(const char*) =0;
+        virtual void send(fload f) =0;
+        virtual float recieve() =0;
+        virtual ~GPIBInstrument(){}
+};
+</pre>
+</b>
+    <p>
+        This is an interface for a generalized GPIB instrument So, the Acme130 and the VoltOn59 are two such devices.<br/>
+        They can be made "usable as" GPIBInstruments. 
+    </p>
+    <b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+class Acme130: public VoltageSupply, public GPIBInstrument
+{
+    public:
+        Acme130();
+
+        // VS interface
+        virtual void set(_) =0;
+        .
+        . 
+        . 
+
+        // GPIB interface
+        virtual void send(_);
+        . 
+        . 
+        . 
+
+    private:
+};
+</pre>
+</b>
+
+    <p>It's important to note that the addition of the derivation from the second base doesn't change how the <br/>
+        Acme130 behaves as a VS in any client code such as the calibrate() function. The device can be VS <br/>
+        independent of being a GPIBInstrument. Ith doesn't need any recoding. The interfaces are independent. <br/>
+        <br/>   
+    </p>
+    <h3>Section 9.8</h3>
+    <p>
+        So far, we have seen that a client function such as the calibrate() function can be passed an object <br/>
+        through a reference or ptr. to an interface base. But we can also have an interface base as member types <br/>
+        in classes. But if so it has to be a reference or a ptr (to the type).<br/><br/>
+
+        Lets generalize the GPIB_Contoller to an interface - to represent any such kind of GPIB thing.
+    </p>
+    <b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+class GPIB_Contoller
+{
+    public:
+        virtual void insert(__) = 0;
+        virtual void send(__) = 0;
+        virtual void send(__, __) = 0;
+        virtual float recieve() =0;
+        virtual ~GPIB_Contoller(){}
+};
+
+// Now, we change the original GPIB_Contoller
+
+class GPIB: public GPIB_Contoller
+{
+    public: 
+        virtual void insert(__);
+        virtual void send(__); 
+        virtual void send(__, __);
+};
+</pre>
+</b>
+    <p>
+        It's same as before execept now derive from the master class of such controllers. Now we generalize <br/>
+        the voltage supplies.
+    </p>
+<b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+class Acme130: public VoltageSupply, public GPIBInstrument
+{
+    public:
+        Acme130(GPIB_Contoller &controller, ...);
+        // etc.
+    private:
+        GPIB_Contoller &my_controller; // &lArr; Important
+        int my_address;
+};
+</pre>
+</b>
+    <p>
+        The constructor initializes the reference data member. That GPIB_Contoller can be any kind of such device<br/>
+        As another example, lets create a voltage/current test class.
+    </p>
+<b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+class IVtester
+{
+    public:
+        // notice parameters are references and member variables are references
+        IVtester(VoltageSupply &vs, VoltageMetric &vm) : supply(vs), meter(vm) {}
+        double current(_doStuff);
+    private:
+        VoltageSupply &supply;
+        VoltageMetric &meter;
+};
+</pre>
+</b>
+    <p>
+        So, we can create an object of type IVtester with any pairing of voltages supply and meter. The member <br/>
+        function, current() operates dependent on the functionaility of the specific "values" of VoltageSupply and Meter.<br/>
+        <br/>
+
+        <h3>9.9</h3>
+        Is it possible to have an array of interfaces? The answer is yes and it's appropriate in the case of this <br/>
+        model. And in this example (rather complex) in 9.9 shows that. 
+    </p>
 </div>
