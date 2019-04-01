@@ -332,6 +332,25 @@ class IVtester
 
         <h3>9.9</h3>
         Is it possible to have an array of interfaces? The answer is yes and it's appropriate in the case of this <br/>
-        model. And in this example (rather complex) in 9.9 shows that. 
+        model. And in this example (rather complex) in 9.9 shows that.
+        <br/>
+        <br/>
+        They create an array of pointers to the interface base type. 
     </p>
+<b>
+<pre  class='brush: cpp' style="padding: 2%; width:500px; height: 30%; margin-left: 5%;">
+class GPIB_Contoller_GIS: public GPIB_Contoller
+{
+    . 
+    . 
+    . 
+
+    private:
+        Array&lt;GPIBInstrument Simulation *> simulators;
+    . 
+    . 
+    . 
+};
+</pre>
+</b>
 </div>
