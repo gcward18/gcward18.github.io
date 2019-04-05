@@ -1,0 +1,222 @@
+<!-- Latest compiled and minified CSS -->
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../css/classes.css">
+</head>
+<div class="jumbotron text-center">
+        <h1>Commonality of Implementation</h1>
+</div>
+<body>
+    <p>
+        In Chapter 9 we focused on common behavior. And the concept of an interface base. <br/>
+        Virtual function and no state variables characterized the base class; derived classes had<br/>
+        common behavior but differing Implementations.<br/>
+        <br/>
+        Now, our current goal is to address the issue of repetition of code. We are going to do <br/>
+        this by using public derivation for extension. In chapter 4 we had a simple array class and then<br/>
+        rewrote it as a checkArray class to be able to include exception handling for certain operations<br/>
+        but doing it that way leads to code repetition/replication, can we do it better? Of cour the answer<br/>
+        is yes. We are going to do the same thing but now using inhertance.
+
+
+<pre  class='brush: cpp'>
+// Note: the reserved word "public"
+// means that it's a public base
+
+// Notice also that we have no Virtual
+// functions and we could have, but in 
+// this case don't have state variables.
+// So, this is not an interface base;
+class CheckedArray: public Array 
+{
+    public:
+        checkArray();
+        checkArray(const int n);
+        float& operator[](const int i);
+        checkArray& operator=(const float f);
+        class SubscriptErr{};
+
+};
+
+
+// The array class is an Implementation base
+class Array
+{
+    public:
+        Array();
+        Array(int n);
+        Array(const Array& a);
+        ~Array();
+        float& operator[](const int i);
+        Array& operator=(float f);
+        Array& operator=(const Array& s);
+        int numElements() const;
+
+    private:
+        int num_elements;
+        float* ptr;
+        void copy(const Array& src);
+};
+
+// unless otherwise defined by the derived class, constructors,
+// destructors and assignment operators are automaticlly built
+// by C++. If you want them different, you need to make them
+// yourself. Every derived class will need to build two things
+// the base subobject and its own state variables. 
+</pre> 
+
+        Any instance of a derived class contains an instace of a <b>base subobject</b><br/>
+        Now, each of member of the base is not inherited by the derived class except<br/>
+        <ul>
+            <li>constructors</li>
+            <li>assignment operators</li>
+            <li>destructors</li>
+        </ul>
+
+        Any function that is declared in the derived class that has the same identifier <br/>
+        as one in the parent class is said to "hide" the base version.<br/><br/>
+
+        Thus, CheckedArray has its own operator[] defined, and its own operator= <br/>
+        along with constructors. The base class definitions in the derived class definitions<br/>
+        to save code.<br/><br/>
+
+      
+<pre  class='brush: cpp'>
+float& CheckedArray::operator[](const int i){
+    if(i&lt;0 || i&ge;numElements()) throw SubscriptErr();
+    return Array::operator[](i);
+}
+
+//                                       base class initializer
+CheckedArray::CheckedArray(const int n):     Array(n) {}
+
+</pre>   
+        Derived class constructors should have base initializers for every base. <br/>
+        If no base initializers are supplied, then C++ calls the base class default<br/>
+        constructor. Base class initializers should be called/invoked in the order <br/>
+        they are declared. <br/>
+        <br/>
+
+        It's best to provide a default constructor for 2 reasons.
+        <ul>
+            <li>if you write any other constructor, then c++ supresses the auto<br/>
+            generation of the default</li>
+            <li>To create an array of these objects you need a default</li>
+        </ul>
+
+        <br/>
+        If c++ generates it's own copy constructor, own copy assignment, then they<br/>
+        are going to call the base class version.
+
+             
+<pre  class='brush: cpp'>
+CheckedArray& checkArray::operator =(float f)
+{
+    Array::operator =(f);
+    return (*this);
+}
+</pre> 
+    </p>
+
+    <h2>Client code</h2>
+    <p>
+        Derived class objects can be passed into functions through pointers or references to base class <br/>
+        parameters. If so, the base class operations will apply    <br/>
+
+    </p>
+        <h3>suppose</h3>       
+<pre  class='brush: cpp'>
+float maxelt(Array& a){
+    float max = a[0];
+    for(int i = 0; i&lt; a.numElements; i++)
+    {
+        if(a[i] > max)
+            max[i];
+    }
+    return max;
+}
+</pre> 
+    <p>
+        <h3>Question</h3>
+        which [] operator applies here? Is the index checked? Ans. No. Because this is a reference to an <br/>
+        Array object, not a CheckedArray.
+    </p>
+
+    <h2>What about interface base classes and extension by public derivation?</h2>
+    <p>
+        The Acme Corp. Decides to build another more advanced voltage supply - the Acme140
+    </p>
+<pre  class='brush: cpp'>
+class Acme140: public Acme 130
+{
+    public:
+        enum Jumper { J1, J2 };
+        Acme140(GPIBController& controller, int address, Jumper j);
+        virtual float max() const;
+    private:
+        float max_volts;
+};
+</pre> 
+    <p>
+        So, the 140 inherits everything from the 130 but also allows for a max voltage, that is going <br/>
+        to be determined by the j-value. So, the 140 "is a" 130 "is a" VoltageSupply, and "is a" GPIBInstrument<br/>
+        <br/>
+
+        But note that the Acme130 is an <b>Implementation base</b>, not an interface base. So, we have to have a<br/>
+        constructor for the 140:
+    </p>
+<pre  class='brush: cpp'>
+Acme140::Acme140(GPIBController controller, int address, Jumper j):
+         Acme140(controller, address), 
+         max_volts(j==J1 ? 10: 50)
+         {}
+</pre> 
+    <p>
+        Here, the Acme140 constructor calls the base subobjects constructor and then initializes it own member(max_volts);<br/>
+        And, we also need to provide the new max() function for Acme140... Because we want it to behave like a 140<br/>
+    </p>
+<pre  class='brush: cpp'>
+Acme140::max() const 
+{
+    return max_volts;
+}
+</pre> 
+    <p>
+        *Deviced class defined virtual functions override the base class functions.
+    </p>
+<pre  class='brush: cpp'>
+Acme140 supply(gpib, 15, Acme140::J2);
+cout &lt;&lt; supply.max();  // --> 50
+
+Acme130& as_130 = supply;
+cout &lt;&lt; as_130.max(); // --> 50
+
+VoltageSupply& as_VS = supply;
+cout &lt;&lt; as_VS.max(); // --> 50
+</pre> 
+    <p>
+        Why 50 in ex. case? The max() function is virtual. This gives us trup object oriented behavior
+    </p>
+
+    <h3>Consider</h3>
+<pre  class='brush: cpp'>
+void Acme130::set(float v)
+{
+    if(v > max() || v &lt; min()) throw exception();
+    send(v);
+}
+// Since the Acme 140 derives from the Acme 130 and the max 
+// function is virtual, the correct max() is called here... 
+// That of the object 
+
+// ex(cont.) 
+supply.set(20); // works
+as_130.set(20); // works
+
+Acme130 s(gpib, int, Acme140::J1);
+
+s.set(20); // throws exception
+</pre> 
+</body>
