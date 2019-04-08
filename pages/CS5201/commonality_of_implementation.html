@@ -219,4 +219,158 @@ Acme130 s(gpib, int, Acme140::J1);
 
 s.set(20); // throws exception
 </pre> 
+
+    <h2>Section 3</h2>
+    <p>
+    <ol>
+        <li>
+            Theere are problems stemming from public inheritance. We expose design decision when using extension <br/>
+            by public inhertance. You've exposed that you are implemnting in a Implementation base. It's always<br/>
+            a trade-off between the ease of this design and the likelyhood of any change in Implementatio. But<br/>
+            in general, we want to hide any implementation decision if possible
+        </li>
+        <li>
+            We are foreced to use virtaul functions. If we want true OO behavior, then virtual functions are a <br/>
+            must. If the virtual max() was not virtual, then using an object via a ptr or ref to a base type <br/>
+            would not give you the expected behavior. Calling max() for a 140 obj. "as a" 130, would give you <br/>
+            the max voltage of the 130 type not the 140. The virtual function overhead is expensive, but public<br/>
+            inhertance for extension forces us to use it... if we don't want schizophrenic function behavior. <br/>
+            Thus, avoid new definitons of function in derived classes if they're non-virtual. <br/><br/>
+
+            Should we necessarily use virtual functions?
+            <ol>
+                <li>When making a "concrete" class - one that is not likely to change</li>
+                <li>Sometimes you simply wnat continuity from base to derviced class</li>
+            </ol>
+
+            <h3>Consider:</h3>
+<pre  class='brush: cpp'>
+void printmax(Acme130 a){
+    cout &lt;&lt; "Max Voltage is " &lt;&lt; a.max();
+}
+</pre> 
+            and we have 2 supplies, supply1 and supply2, both of type Acme140 with supply1 having max of 10 and <br/>
+            supply2 having a max of 50, then printmax(supply1) -> 10 and printmax(supply2) -> 10  <br/> <br/>
+
+            This is because the parameter for the function is an Acme130. So, it's the base subobject that is copied<br/>
+            so the max is that of an Acme130. THe 130 is both <b>interface</b> and <b>implementation</b> base. The <br/>
+            compiler can't catch the "mistake".<br/>
+            <br/>
+
+            If, on the otherhand, we had used a reference to the voltage supply interface base (because they are Voltage Supplies)<br/>
+            then the compiler would have caught it.<br/>
+            => use interfaces!<br/>
+     
+        </li>
+    </ol>
+
+    <h2>Member Function Forwarding</h2>
+<pre  class='brush: cpp'>
+class Acme130: public VoltageSupply, public GPIBInstrument
+{
+    public:
+        Acme130(GPIBController gpib, int n);
+        // VS interface
+        //..
+        // GPIBInstrument interface
+        virtual void send(const char* c);
+        virtual void send(float v);
+        virtual float recieve();
+    private:
+        GPIBController& my_controller;
+        int my_address;
+};
+
+// VoltOn59 is the same
+</pre>   
+
+    Furthermore, the VoltyMetrics inherits from a GPIBInstrument base also. All 3 of these have a GPIBInstrument base adn have<br/>
+    the same functionality and data and usi it in the same way. <br/>
+    <br/>
+
+    We can avoid the replication of code by using member function forwarding. We create a new class:
+
+<pre  class='brush: cpp'>
+class GPIBInstrumentData
+{
+    public:
+        GPIBInstrumentData(GPIBController& c, int address, const char* name);
+        // Instrument interface
+        void send(__);
+        void send(__);
+        void recieve(__);
+    private:
+        GPIBController& controller;
+        int my_address;
+    
+};
+</pre> 
+    Structurally like the 130, 59, VoltyMetric.., but not like the interface.<br/>
+    The function implementations are the same. But now we require only one copy example....
+
+<pre  class='brush: cpp'>
+void GPIBInstrumentData::send(float v){
+    my_control.send(my_addr, v);
+}
+</pre>
+    And this is going to work for all such GPIB instruments. The constructor initalizes the data and <br/>
+    inserts the device into the controller Since it isn't a part of a specific device, it needs that<br/>
+     additional parameter. The device name.
+
+
+<pre  class='brush: cpp'>
+GPIBInstrumentData::GPIBInstrumentData(GPIBController controller, int address, char* name) : my_controller(c), my_address(address)
+{
+    my_controller.insert(name, this->my_address);
+}
+</pre>
+
+<pre  class='brush: cpp'>
+class Acme130: public VS, public GPIBInstrument
+{
+    public:
+        Acme130(GPIBController& c, int address): gpib_rep(c, address, "Acme130"){}
+        // Voltage supply interface
+        //   ....
+        // Instrument interface
+        virtual void send(const char* cmd) {
+            gpib_rep.send(cmd);
+        }
+        virtual void send(const float f) {
+            gpib_rep.send(f);
+        }
+        virtaul float recieve() {
+            return gpib_rep.recieve();
+        }
+    private:
+        GPIBInstrumentData gpib_rep;
+};
+</pre>
+
+<pre  class='brush: cpp'>
+                        -----------------
+                        | GPIBInstrument|
+                        _________________
+                        |               |
+                        |               |
+                        -----------------
+                     ^          ^          ^
+                    /           |           \
+    ----------------    -----------------   ----------------
+    | VoltyMetrics |    |    Acme130    |   |   VoltOn59   |
+    ----------------    -----------------   ----------------
+    |              |    |               |   |              |
+    |              |    |               |   |              |
+    ----------------    -----------------   ----------------
+                    \           |           /
+                     V          V          V
+                        --------------------
+                        |GPIBInstrumentData|
+                        --------------------
+                        |                  |
+                        |                  |
+                        --------------------
+</pre>
+</p>
+
 </body>
