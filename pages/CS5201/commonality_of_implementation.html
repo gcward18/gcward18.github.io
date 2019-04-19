@@ -451,7 +451,7 @@ Acme130 s(gpib, 3);
 
 s.send(30); // No compile
 </pre>
-    This doesn't compile. send() is privately inhderited, so we can't call it directly.
+    This doesn't compile. send() is privately inherited, so we can't call it directly.
 
 <pre class='brush:cpp'>
 GPIBInstrument& G = new Acme130(gpib,3);
@@ -471,5 +471,131 @@ class Acme130: ---------------
         GPIBInstrumentData::send;
 }
 </pre>
+
+        Inheritance works throught the identification of names. Names are identifiers with a meaning <br/>
+       
+        A name has 3 attribute: 
+        <ul>
+            <li>scope</li>
+            <li>dominance</li>
+            <li>accessablility</li>
+        </ul>
+        
+        Resolving these attributes determines how the name works.  <br/>
+        A name is declared. Its scope is determined is by how it is nested in classes, functions and <br/>
+        blocks of code. Whether it dominates or is dominated by other names with the same identifier <br/>
+        is determined by the relationship of its class and other classes in a directed acyclic diagram <br/>
+        (DAG) and of course accessablility is determine by whether it's public, private, or protected. <br/>
+        Scope identifiers have to be resolved to the present scope. 
+
+<pre class='brush:cpp'>
+class Acme230: public virtual VS, public virtual GPIBInstrument,
+               private Acme130
+{
+    public:
+        Acme230(...);
+        virtual float max() const;
+        virtual void set(const float volts);
+        enum Range{high, low};
+        virtual void set(Range r);
+    private:
+        Range setting;
+
+};
+// Dual Range Voltage Supply
+</pre>
+
+
+<pre  class='brush: cpp'>
+        -----------------    -----------------
+        |  VoltageSupply|    | GPIBInstrument|
+        _________________    _________________
+        ^            ^     ^   ^          ^
+        |          __ |___/    |          |         
+        |         /   |        |          |
+        |        /    |        |       ---------------------
+        |       /     |        |       | GPIBInstrumentData |
+        |       |     |        |        ____________________
+        |       |     |        |        ^
+        |      /      |        |        |
+        |     /       \        |       /
+    -------------       ---------------
+    | Acme230   |---->  |  Acme130    |  
+    _____________       _______________
+</pre>
+
+    We've introduced the words "high" and "low" in the scope of the Acme230. We have a <br/>
+    new set function for Range. But, we still wish to have set function for voltage. <br/>
+    Hence, we must redeclare the float set function. .... and the max() function<br/><br/>
+
+    Here, high is in the scope of 230, so it has to be scoped.
+
+
+<pre class='brush:cpp'>
+float Acme230::max() const
+{
+    if(setting == high) return 100;
+    return 10;
+};
+</pre>
+
+    .. and 
+
+<pre class='brush:cpp'>
+Acme230 s(gpib, 1);
+s.set(Acme230::high); // Acme230:: = scoping for class 
+                      // enumeration type
+</pre>
+
+        A derived classes scope will include the scope of all bases classes. So all names<br/>
+        in VS, Acme130, and GPIBInstrument will be in the scope of the Acme230. Names are inherited<br/>
+        It operates like block scope. A name declared in an inner block <b>hides</b> the same name in an <br/>
+        outer block. Consider "max", the Acme230 inherits max from Acme130. But redeclaring it in <br/>
+        the Acme230 <b>hides</b> the Acme130 meaning. min is inherited but <b>not hidden</b>. Now, if the name <br/>
+        of a virtual function is redeclared in a derived class and has the same number and type of <br/>
+        parameters, then the base class name is <b>hidden</b> and <b>overriden</b>. If the number and <br/>
+        types of parameters is not the same, then only hiding takes place. Some compilers will give <br/>
+        you a warning - because that's not a good idea.<br/><br/>
+        
+        So, since we want both types of set capability, we must ensure we do by redeclaring set. <br/>
+        Note: name hidding occurs before and indpendently of function overloading. So, we declare
+
+<pre class='brush:cpp'>
+void Acme230::set(float v)
+{
+    Acme130::set(v);
+}
+</pre>
+    <h3>Dominance</h3>
+    
+        A problem: 2 base classes, both containing the same name. So, a derived class has two sources for that <br/>
+        name. Which one does it inherit? To ask which one it inherits is to ask which one is dominant. <br/>
+        So a name declared in a derived class will dominate the same name in any base class.<br/>
+        [multiple bases => dominance; Single base => hiding].<br/>
+        As example: min() is declared in the Acme130, so it dominates min() in VS. Now, look at the Acme230. <br/>
+        This is derived from both VS and Acme130. Which min() applies??<br/>
+        The name that is dominant in a 2-class DAG will dominante will dominate in any DAG that contains it as a <br/>
+        sub DAG. So, Acme230 get Acme130's min.<br/><br/>
+
+<pre  class='brush: cpp'>
+        -----------------    -----------------
+        |  VoltageSupply|    | GPIBInstrument|
+        _________________    _________________
+        ^            ^     ^   ^          ^
+        |          __ |___/    |          |         
+        |         /   |        |          |
+        |        /    |        |       ---------------------
+        |       /     |        |       | GPIBInstrumentData |
+        |       |     |        |        ____________________
+        |       |     |        |        ^
+        |      /      |        |        |pr
+        |     /       \        |       /
+    -------------       ---------------
+    | Acme230   |--pr-> |  Acme130    |  
+    _____________       _______________
+</pre>
+
+        What if we remove the virtual derivation? 
+
 </p>    
 </body>
