@@ -1,0 +1,140 @@
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="../../css/classes.css">
+    </head>
+    <div class="jumbotron text-center">
+            <h1>Baron-Nackman Trick<br/>
+            Curiously Recursive Template Pattern</h1>
+    </div>
+
+<body>
+    <h2>Static Polymorphism</h2>
+    <ul>
+        <li>Low runtime overhead</li>
+        <li>"Instantiate" base class</li>
+    </ul>
+
+    <h3>Cons:</h3>
+    <ul>
+        <li>Complicated</li>
+        <li>Program could be larger</li>
+        <li>Requires compile-time known types</li>
+    </ul>
+
+<pre class="brush: cpp">
+// Interface Class 
+template&lt;class Derived>
+class Base
+{
+    public:
+        Derived& asDerived() {
+            return static_cast&lt;Derived&>
+                (*this);
+        }
+        
+        const Derived& asDerived() const{
+            return static_cast&lt;Derived&>
+                (*this);
+        }
+
+        int foo() {
+            return asDerived().foo();
+        }
+};
+
+// Implementation Class
+class Seven: public Base&lt;Seven>
+{
+    public:
+        int foo() {
+            return 10;
+        }
+};
+
+int main(){
+    Seven s;
+
+    cout &lt;&lt; s.foo(); // 10
+
+    Base&lt;Seven> b;
+
+    cout &lt;&lt; b.foo(); // 10 same....
+}
+</pre>
+
+<pre class="brush: cpp">
+// another test
+
+template&lt;class Derived>
+void print_foo(const Base&lt;Derived>& b) {
+    cout &lt;&lt; b.foo();
+}
+
+int main(){
+    Seven s;
+
+    print_foo(s);
+
+    Five f;
+
+    print_foo(f);
+}
+</pre>
+
+
+<pre class="brush: cpp">
+// Interface Class new foo implementation
+template&lt;class Derived>
+class Base
+{
+    public:
+        Derived& asDerived() {
+            return static_cast&lt;Derived&>
+                (*this);
+        }
+        
+        const Derived& asDerived() const{
+            return static_cast&lt;Derived&>
+                (*this);
+        }
+
+        int foo() {
+            return asDerived().foo_impl();
+        }
+
+        int foo_imp() {
+            return 7;
+        }
+};
+
+// Implementation Class
+class Seven: public Base&lt;Seven>
+{
+    public:
+        int foo_impl() {
+            return 10;
+        }
+};
+
+class Boring: public Derived&lt;Boring>
+{
+
+};
+
+
+int main(){
+    Base&lt;Boring> b;
+    b.foo(); // prints 7
+}
+</pre>
+
+    <h2>Type Erasure: Google it!</h2>
+
+<pre class="brush: cpp">
+void whatever(Base& b) {
+    Base* copy = b.clone();
+}
+</pre>
+</body>
