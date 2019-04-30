@@ -1,0 +1,112 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../css/classes.css">
+</head>
+<div class="jumbotron text-center">
+        <h1><b>Callbacks (C++)</b></h1>
+</div>
+
+<body>
+    <p>
+       <h2>Method 1</h2>
+<pre class="brush: cpp">
+double integrate( double a, double b, int numPts,
+                  double (*f)(double))
+{
+    double delta = (b-a); // (numPts -1)
+    double sum = 0;
+    for(int i = 0; i < numPts; i++)
+    {
+        sum += f(a+i*delta);
+    }
+
+    return sum*(b-a)/numPts;
+}
+
+// the call: ??= integrate(3,4, 100, cos);
+</pre>
+    issue with this is a lot of pointer dereferencing
+
+   <h2>Method 2 (C++ approach)</h2>
+
+<pre class="brush: cpp">
+class Integrator
+{
+    public: 
+        double integrate( double a, double b, in numPts);
+        {
+            double delta = (b-a)/(numPts - 1), sum = 0;
+            for(int i = 0; i &lt; numPts; i++)
+                sum += func2integrate(a+i+delta);
+            return sum * (b -a) /numPts;
+        }
+
+        virtual double func2integrate(double x ) = 0;
+};
+
+class Integrate : public Integrator 
+{
+    public: 
+        virtual double func2integrate(double x)
+        {
+            return cos(x);
+        }
+};
+// the call: 
+// IntegrateMe f;
+// ?? = f.integrate(0, 3.14559, 45000);
+
+</pre>
+
+    Issues: you have the overhead of virtual function call and you have to map up every function to integrate in <br/>
+    in its class
+
+    <h2>Method 3</h2>
+<pre class="brush: cpp">
+class function1
+{
+    public:
+        double operator() (double x)
+        {
+            return 1.0/(1+x*x);
+        }
+};
+
+template &lt;class T_function>
+double integrate(double a, double b, int numPts, T_function f)
+{
+    double delta = (b-a)/(numPts -1), sum = 0;
+    for(int i = 0; i < numPts; ++i)
+        sum += f(a+i*delta);
+    return sum * (b-a)/numPts;
+}
+// the call:
+// ?? = integrate(1,2, 199, function1());
+</pre>
+    We've imporoved performance by using template  effectively inlined the eval and got rid of everything
+    <br/>
+    from the virtualization and pointer dereferencing
+
+
+    <h2>Method 4 (Pointer to function template)</h2>
+<pre class="brush: cpp">
+double function1(double x)
+{
+    return 1.0/(1+x*x);
+}
+
+template &lt;double T_function(double)>
+double integrate(double a, double b, in numPts)
+{
+    double delta = (b-a)/(numPts -1), sum = 0;
+    for(int i = 0; i &lt; numPts; i++)
+        sum += T_function(a+i*delta);
+    return sum*(b-a)/numPts;
+}
+// The call:
+// ?? = integrate&lt;function1>(1,2,100);
+</pre>
+    </p>
+</body>
