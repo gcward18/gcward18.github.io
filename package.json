@@ -27,6 +27,7 @@
     "recompose": "^0.30.0"
   },
   "scripts": {
+    "push":"git push origin master",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
