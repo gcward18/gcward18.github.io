@@ -1,0 +1,21 @@
+.contact-div {
+    background-color: whitesmoke;
+    height: 5vh;
+    border-top: 1px solid rgba(160,160,160,0.3);
+    font-family: "Raleway",Helvetica,sans-serif;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    left:0px;
+    position: relative;
+}
+.l-img {
+    height: 20px;
+    margin: 5px;
+}
+ul{
+    padding:0px;
+    list-style: none;
+}

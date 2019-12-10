@@ -1,0 +1,45 @@
+/* Google fonts
+font-family: 'Roboto', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Shadows Into Light', cursive;
+font-family: 'Amatic SC', cursive;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Julius Sans One', sans-serif;
+ */
+.personal-image-div {
+    background-color: whitesmoke;
+    height: 40%;
+    font-family: "Raleway",Helvetica,sans-serif;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Julius Sans One', sans-serif;
+    cursor: default;
+    margin-top: 30px;
+    /* font:"Courier New", Courier, monospace !important; */
+}
+.email {
+    font-size: 1.25ch;
+    font-weight: 300;
+    position: relative;
+    width: fit-content;
+    
+    color:#646464;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(160,160,160,0.3);
+    /* font:"Courier New", Courier, monospace !important; */
+}
+
+.email:focus {
+    color: #2598BA
+}
+.my-photo {
+    height: 55%;
+    width: 50%;
+    border-radius: 100%;
+    position: relative;
+    top: 5px;
+}

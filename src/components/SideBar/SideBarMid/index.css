@@ -1,0 +1,17 @@
+.about-div{
+    background-color: whitesmoke;
+    height: 45%;
+    border-top: 1px solid rgba(160,160,160,0.3);
+    font-family: "Raleway",Helvetica,sans-serif;
+}
+
+.header {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.content {
+    font-weight: lighter;
+    font-size: 12px;
+    text-align: justify;
+}

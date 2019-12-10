@@ -1,0 +1,123 @@
+.header {
+    border-bottom: 1px solid rgba(160,160,160,0.3);
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+}
+.scrollable-view {
+    height: 80vh;
+    overflow-y: scroll;
+    /* display: none; */
+    /* -ms-overflow-style: none; */
+}
+.scrollable-view::-webkit-scrollbar {
+    display: none;
+}
+
+h2.title {
+    margin-left: 15px;
+    border-bottom: 1px solid rgba(160,160,160,0.3);
+    padding: 15px 0px 15px 0px;
+    color: #808080;
+}
+.date {
+    margin-left: 15px;
+    border-bottom: 1px solid rgba(160,160,160,0.3);
+    padding: 0px 0px 15px 0px;
+    color: #808080;
+}
+.text {
+    padding: 15px 0px 15px 20px;
+}
+.bullet {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 25px;
+}
+.bullet::before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bullet-att::before {
+    background-image: url('../../img/att.png');
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bullet-ds::before {
+    background-image: url('../../img/ds.png');
+    content: '';
+    width: 22px;
+    height: px;
+    position: absolute;
+    background-size: cover;
+    /* background-position: center; */
+    left: 0;
+    top: 19px;
+    transform: translateY(-70%);
+    background-position: 0% 0;
+}
+.bullet-www::before {
+    background-image: url('../../img/www.png');
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.bullet-mst::before {
+    background-image: url('../../img/FullJoe.jpg');
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.bullet-gotcha::before {
+    background-image: url('../../img/gotcha.png');
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.skill-list {
+    position: flex;
+    flex-direction: row;
+}
+.skill {
+    border: 1px solid rgba(160,160,160,0.3);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: whitesmoke;
+    margin-top: 5px;
+    width: fit-content;
+    font-size: 30px;
+    font-weight: bold;
+    color: cornflowerblue;
+}
