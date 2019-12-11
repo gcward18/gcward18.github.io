@@ -20,98 +20,171 @@ class ResumePage extends Component {
             showSkills: !this.state.showSkills
         });
     }
+
+    createSkillChart = skill_level => {
+        var level = []
+        var backgroundColor = 'red';
+        for (var i = 0; i < skill_level; i++){
+            if(i < 3){
+                backgroundColor = 'red'
+            }else if ( i >=3 && i <7){
+                backgroundColor = 'yellow'
+            }
+            else{
+                backgroundColor = 'green'
+            }
+            level.push(
+                <div className='skill-level' style={{backgroundColor}} key={i}></div>
+            )
+        }
+        return level
+    }
     render() {
         var experience = [];
         var skills = [];
         var list = [
             {
                 'name':'Python',
-                'path':'../../img/languages/python.png'    
+                'skill-level': 9,
+                'path':`${process.env.PUBLIC_URL}/assets/languages/python.png` 
             },
             {
                 'name':'CSS',
-                'path':'../../img/languages/css.png'    
+                'skill-level': 4,
+                'path':'../img/languages/css.png'    
             },
             {
                 'name':'HTML',
+                'skill-level': 6,
                 'path':'../../img/languages/html.png'    
             },
             {
                 'name':'C',
+                'skill-level': 5,
                 'path':'../../img/languages/c.png'
             },
             {
                 'name':'C++',
+                'skill-level': 8,
                 'path':'../../img/languages/c++.jpg'    
             },
             {
-                'name':'Javascript',
-                'path':'../../img/languages/javascript.png'    
+                'name':'Flutter',
+                'skill-level': 4,
+                'path':'../../img/languages/flutter.png'    
+            },
+            {
+                'name':'React',
+                'skill-level': 8,
+                'path':'../../img/languages/react.png'    
+            },
+            {
+                'name':'Git',
+                'skill-level': 6,
+                'path':'../../img/languages/git.png'    
+            },
+            {
+                'name':'Pandas',
+                'skill-level': 5,
+                'path':'../../img/languages/pandas.png'    
+            },
+            {
+                'name':'Numpy',
+                'skill-level': 5,
+                'path':'../../img/languages/numpy.png'    
             }
         ]
+
+        var ex_list = [ 
+            {
+                'title': 'AT&T: Full Stack Software Development Intern',
+                'date': 'Summer 2019',
+                'bullet-style': 'bullet bullet-att',
+                'bullets': [
+                    'Designed mobile augmented reality application for finding cellular service, implemented with in Unity using C# and Google Firebase',
+                    'Assisted business partner with web development using React.js/Javascript for front-end development and created API’s utilizing Java for accessing data from MySQL',
+                    'Used agile development process for task delegation'
+                ]
+            },
+            {
+                'title': 'Device Solutions: Software Development Intern',
+                'date': 'Summer 2018',
+                'bullet-style': 'bullet bullet-ds',
+                'bullets': [
+                    'Captured cellular phone packet data and analyzed it using Wire Shark',
+                    'Created Python scripts to produce simple statistics from data provided by Wire Shark',
+                    'Developed a support/billing database',
+                    'Designed Python library for interacting with database'
+                ]
+            },
+            {
+                'title': 'WW Wood Products: Software Development Intern',
+                'date': 'Summer 2017',
+                'bullet-style': 'bullet bullet-www',
+                'bullets': [
+                    'Developed a web based application utilizing C#, JavaScript, HTML, CSS, and SQL that took user inputs to find doors of matching color and size, program had to parse over 25,000 active doors in a given day',
+                    'Connected with factory managers to ensure the web application met factory floor needs',
+                    'Created automated tests to replace manual testing in two of company’s programs saving 1-4 hours of labor per test run'
+                ]
+            },
+            {
+                'title': 'Missouri University of Science and Technology: Data Structures Lab Assistant and Grader',
+                'date': 'Spring 2017 - Fall 2019',
+                'bullet-style': 'bullet bullet-mst',
+                'bullets': [
+                    'Assisted students with learning the fundamental Computer Science tools, such as version control(git), bash scripting, unit testing, Graphical User Interface tools (QT), and much more',
+                    'Elaborated to students on how to utilize the tools that are presented in class',
+                    'Developed a support/billing database',
+                    'Collaborated with instructors on how to better develop the class'
+                ]
+            },
+            {
+                'title': 'Senior Design Team Lead: Gotcha',
+                'date': 'Spring 2019',
+                'bullet-style': 'bullet bullet-gotcha',
+                'bullets': [
+                    'Lead team to create user friendly key-less entry door system',
+                    'Developed cross-platform mobile application utilizing Dart and Flutter',
+                    'Assembled hardware which included a Raspberry Pi, motion detector, and Pi Camera module'
+                ]
+            }
+        ]
+
+        
         experience.push(
             <div>
-                <h2 className='title'>AT&T: Full Stack Software Development Intern</h2>
-                <h3 className='date'>Summer 2019</h3>
-                <ul className='text'>
-                    <li className='bullet bullet-att'>   Designed mobile augmented reality application for finding cellular service, implemented
-                        with in Unity using C# and Google Firebase</li>
-                    <li className='bullet bullet-att'>   Assisted business partner with web development using React.js/Javascript for front-end
-                        development and created API’s utilizing Java for accessing data from MySQL</li>
-                    <li className='bullet bullet-att'>   Used agile development process for task delegation</li>
-                </ul>
-
-                <h2 className='title'>Device Solutions: Software Development Intern</h2>
-                <h3 className='date'>Summer 2018</h3>
-                <ul className='text'>
-                    <li className='bullet bullet-ds'> Captured cellular phone packet data and analyzed it using Wire Shark </li>
-                    <li className='bullet bullet-ds'> Created Python scripts to produce simple statistics from data provided by Wire Shark </li>
-                    <li className='bullet bullet-ds'> Developed a support/billing database </li>
-                    <li className='bullet bullet-ds'> Designed Python library for interacting with database </li>
-                </ul>
-
-                <h2 className='title'>WW Wood Products: Software Development Intern</h2>
-                <h3 className='date'>Summer 2017</h3>
-                <ul className='text'>
-                    <li className='bullet bullet-www'> Developed a web based application utilizing C#, JavaScript, HTML, CSS, and SQL that
-                    took user inputs to find doors of matching color and size, program had to parse over
-                    25,000 active doors in a given day </li>
-                    <li className='bullet bullet-www'> Connected with factory managers to ensure the web application met factory floor needs </li>
+                {ex_list.map(e => 
+                    <div key={e.title}>
+                        <h2 className='title'>{e.title}</h2>
+                        <h3 className='date'>{e.date}</h3>
+                        <ul className='text'>
+                            {e.bullets.map(b => 
+                                <li className={e["bullet-style"]} key={b}> {b} </li>
+                            )}
+                        </ul>
+                    </div>
                     
-                    <li className='bullet bullet-www'> Created automated tests to replace manual testing in two of company’s programs saving
-                    1-4 hours of labor per test run </li>
-                </ul>
-                
-
-
-                <h2 className='title'>Missouri University of Science and Technology: Data Structures Lab Assistant and Grader</h2>
-                <h3 className='date'>Spring 2017 - Fall 2019</h3>
-                <ul className='text'>
-                    <li className='bullet bullet-mst'> Assisted students with learning the fundamental Computer Science tools, such as version
-                    control(git), bash scripting, unit testing, Graphical User Interface tools (QT), and much
-                    more</li>
-                    <li className='bullet bullet-mst'> Elaborated to students on how to utilize the tools that are presented in class</li>
-                    <li className='bullet bullet-mst'> Collaborated with instructors on how to better develop the class </li>
-                </ul>
-
-                <h2 className='title'>Senior Design Team Lead: Gotcha</h2>
-                <h3 className='date'>Spring 2019</h3>
-                <ul className='text'>
-                    <li className='bullet bullet-gotcha'> Lead team to create user friendly key-less entry door system</li>
-                    <li className='bullet bullet-gotcha'> Developed cross-platform mobile application utilizing Dart and Flutter</li>
-                    <li className='bullet bullet-gotcha'> Assembled hardware which included a Raspberry Pi, motion detector, and Pi Camera module</li>
-                </ul>
-            </div>
+                )}
+            </div> 
         )
+            
         skills.push(
             <div className='skill-list'>
+                <div className='skill-header'>
+                    <div className='skill-header-left'>Skill</div>
+                    <div className='skill-header-right'>Proficiency (1-10)</div>
+                </div>
                 {list.map(e => 
-                    <div className='skill'>
-                        {e.name}
+                    <div className='skill-row'>
+                        <div className='skill' key={e.name}>
+                            {e.name}
+                        </div>
+                        {this.createSkillChart(e['skill-level'])}
                     </div>
                 )}
             </div>
         )
+        
         return (
             <div>
             <h1 
