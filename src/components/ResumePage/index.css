@@ -161,8 +161,6 @@ h2.title {
     color:gray;
 }
 .ed-title{
-    margin-left: 5vw;
-    margin-top: 5vh;
     padding: 15px 0px 15px 0px;
     color: #808080;
 }
@@ -172,6 +170,7 @@ h2.title {
 }
 .ed {    
     height: 72vh;
+    padding-left: 3vw;
     border-bottom: 1px solid rgba(160,160,160,0.3);
 }
 .ed-header { 
@@ -179,9 +178,17 @@ h2.title {
     padding-bottom: 2vh;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid rgba(160,160,160,0.3);
 }
 .ed-img {
-    height: 100px;
-    width: 150px;
+    height: 17vh;
+    width: 21vh;
+    margin-top: 1vh;
+}
+.ed-school-stuff {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vh;
+}
+.ed-block {    
+    border-bottom: 1px solid rgba(160,160,160,0.3);
 }

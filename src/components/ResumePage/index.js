@@ -226,13 +226,15 @@ class ResumePage extends Component {
             <div className='ed'>
                 {
                     education_data.map(e => 
-                        <div key={e.title}>
+                        <div key={e.title} className='ed-block'>
                             <div className='ed-header'>
                                 <img  className='ed-img' src={e.image} alt='edu'/>
-                                <h2 className='ed-title'>{e.title}</h2>
+                                <div className='ed-school-stuff'>
+                                    <h2 className='ed-title'>{e.title}</h2>
+                                    <h3 className='ed-date'>Graduated: {e.date}</h3>
+                                    <h3 className='gpa'>GPA: {e.gpa}</h3>
+                                </div>
                             </div>
-                            <h3 className='ed-date'>Graduated: {e.date}</h3>
-                            <h3 className='gpa'>GPA: {e.gpa}</h3>
                         </div>
                     )
                 }
