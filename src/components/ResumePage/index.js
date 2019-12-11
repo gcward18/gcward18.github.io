@@ -231,8 +231,8 @@ class ResumePage extends Component {
                                 <img  className='ed-img' src={e.image} alt='edu'/>
                                 <h2 className='ed-title'>{e.title}</h2>
                             </div>
-                            <h3 className='ed-date'>{e.date}</h3>
-                            <h3 className='gpa'>GPA:{e.gpa}</h3>
+                            <h3 className='ed-date'>Graduated: {e.date}</h3>
+                            <h3 className='gpa'>GPA: {e.gpa}</h3>
                         </div>
                     )
                 }

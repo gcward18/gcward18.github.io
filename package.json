@@ -28,7 +28,7 @@
     "require-context": "^1.1.0"
   },
   "scripts": {
-    "push": "git push origin master",
+    "push": "git push origin react",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
