@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.d1ca470a.chunk.css",
-    "main.js": "/static/js/main.78b77de6.chunk.js",
-    "main.js.map": "/static/js/main.78b77de6.chunk.js.map",
+    "main.css": "/static/css/main.dfe50dfe.chunk.css",
+    "main.js": "/static/js/main.0fb56840.chunk.js",
+    "main.js.map": "/static/js/main.0fb56840.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bbc06ef5.js",
     "runtime-main.js.map": "/static/js/runtime-main.bbc06ef5.js.map",
     "static/js/2.df1b982b.chunk.js": "/static/js/2.df1b982b.chunk.js",
     "static/js/2.df1b982b.chunk.js.map": "/static/js/2.df1b982b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.b345ab4c3d181838e68f6a36aefdf725.js": "/precache-manifest.b345ab4c3d181838e68f6a36aefdf725.js",
+    "precache-manifest.cf6c25f19418e1fd078b2a4f85da8036.js": "/precache-manifest.cf6c25f19418e1fd078b2a4f85da8036.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.d1ca470a.chunk.css.map": "/static/css/main.d1ca470a.chunk.css.map",
+    "static/css/main.dfe50dfe.chunk.css.map": "/static/css/main.dfe50dfe.chunk.css.map",
     "static/media/Facebook_Logo_(2019).png": "/static/media/Facebook_Logo_(2019).5d6ea38a.png",
     "static/media/index.css": "/static/media/www.cf2f76c7.png",
     "static/media/email-logo.png": "/static/media/email-logo.229079c8.png",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.bbc06ef5.js",
     "static/js/2.df1b982b.chunk.js",
-    "static/css/main.d1ca470a.chunk.css",
-    "static/js/main.78b77de6.chunk.js"
+    "static/css/main.dfe50dfe.chunk.css",
+    "static/js/main.0fb56840.chunk.js"
   ]
 }
