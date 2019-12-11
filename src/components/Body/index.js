@@ -13,7 +13,7 @@ class Body extends Component {
         return (
             <div  className='body-div'>
                 <Switch>
-                    <Route path={routes.HOME} component={AboutPage}/>
+                    <Route path={routes.HOME} component={ResumePage}/>
                     <Route path={routes.RESUME} component={ResumePage}/>
                     <Route path={routes.ABOUT} component={AboutPage}/>
                     <Route path={routes.PROJECTS} component={ProjectPage}/>

@@ -6,6 +6,7 @@
 .scrollable-view {
     height: 78vh;
     overflow-y: scroll;
+    border-bottom: 1px solid rgba(160,160,160,0.3);
     /* display: none; */
     /* -ms-overflow-style: none; */
 }
@@ -171,6 +172,7 @@ h2.title {
 }
 .ed {    
     height: 72vh;
+    border-bottom: 1px solid rgba(160,160,160,0.3);
 }
 .ed-header { 
     margin-top: 5vh;
