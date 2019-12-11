@@ -6,13 +6,20 @@ class ResumePage extends Component {
         super(props)
         this.state = {
             showExperience : false,
-            showSkills: false
+            showEducation: false,
+            showSkills: false,
+            images : []
         }
     }
 
     showExperience = () => {
         this.setState({
             showExperience: !this.state.showExperience
+        });
+    }
+    showEducation = () => {
+        this.setState({
+            showEducation: !this.state.showEducation
         });
     }
     showSkills = () => {
@@ -24,14 +31,15 @@ class ResumePage extends Component {
     createSkillChart = skill_level => {
         var level = []
         var backgroundColor = 'red';
-        for (var i = 0; i < skill_level; i++){
-            if(i < 3){
-                backgroundColor = 'red'
-            }else if ( i >=3 && i <7){
-                backgroundColor = 'yellow'
+        for (var i = 0; i < skill_level*152; i++){
+            if(i==255){
+                var j = 0;
             }
-            else{
-                backgroundColor = 'green'
+            if(i < 255){
+                backgroundColor = 'rgb('+255+','+(0+i)+',0,0.7)'
+            }else{
+                backgroundColor = 'rgb('+(255-j)+','+255+',0,0.7)'
+                j+=0.2;
             }
             level.push(
                 <div className='skill-level' style={{backgroundColor}} key={i}></div>
@@ -39,14 +47,23 @@ class ResumePage extends Component {
         }
         return level
     }
+
+    importAll = r => {
+        return r.keys().map(r);
+    }
+    
+    componentDidMount() {
+        this.setState({images: this.importAll(require.context('../../img/education', false, /\.(png|jpe?g|svg)$/))  });
+    }
+
     render() {
         var experience = [];
         var skills = [];
         var list = [
             {
                 'name':'Python',
-                'skill-level': 9,
-                'path':`${process.env.PUBLIC_URL}/assets/languages/python.png` 
+                'skill-level': 10,
+                'path':'../img/languages/python.png'
             },
             {
                 'name':'CSS',
@@ -60,7 +77,7 @@ class ResumePage extends Component {
             },
             {
                 'name':'C',
-                'skill-level': 5,
+                'skill-level': 5.5,
                 'path':'../../img/languages/c.png'
             },
             {
@@ -150,6 +167,26 @@ class ResumePage extends Component {
             }
         ]
 
+        var education_data = [
+            {
+                'title': 'Missouri University of Science and Technology',
+                'date' : 'December 2019',
+                'gpa'  : '3.67',
+                'image': this.state.images[1]
+            },
+            {
+                'title': 'Three Rivers College',
+                'date' : 'July 2019',
+                'gpa'  : '3.3',
+                'image': this.state.images[0]
+            }
+        ]
+        for(var i =0; i < this.state.images.length; i++){
+            education_data[i].image = this.state.images[i];
+            console.log(education_data[i].image)
+        }
+        var education = [];
+
         
         experience.push(
             <div>
@@ -172,7 +209,7 @@ class ResumePage extends Component {
             <div className='skill-list'>
                 <div className='skill-header'>
                     <div className='skill-header-left'>Skill</div>
-                    <div className='skill-header-right'>Proficiency (1-10)</div>
+                    <div className='skill-header-right'>Proficiency</div>
                 </div>
                 {list.map(e => 
                     <div className='skill-row'>
@@ -182,6 +219,23 @@ class ResumePage extends Component {
                         {this.createSkillChart(e['skill-level'])}
                     </div>
                 )}
+            </div>
+        )
+
+        education.push(
+            <div className='ed'>
+                {
+                    education_data.map(e => 
+                        <div key={e.title}>
+                            <div className='ed-header'>
+                                <img  className='ed-img' src={e.image} alt='edu'/>
+                                <h2 className='ed-title'>{e.title}</h2>
+                            </div>
+                            <h3 className='ed-date'>{e.date}</h3>
+                            <h3 className='gpa'>GPA:{e.gpa}</h3>
+                        </div>
+                    )
+                }
             </div>
         )
         
@@ -194,19 +248,54 @@ class ResumePage extends Component {
                 EXPERIENCE
             </h1>
             {
-                (this.state.showSkills && this.state.showExperience) ?
+                (this.state.showExperience && this.state.showSkills) ?
                 <div className='scrollable-view'>
                     {this.showSkills()}
-                    {experience[0]}
+                    {experience}
+                </div>
+                :
+                (this.state.showExperience && this.state.showEducation) ?
+                <div className='scrollable-view'>
+                    {this.showEducation()}
+                    {experience}
                 </div>
                 :
                 this.state.showExperience ?
                 <div className='scrollable-view'>
-                    {experience[0]}
+                    {experience}
                 </div>
                 : 
                 null
             }
+
+
+            <h1 
+                className='header' 
+                onClick={this.showEducation}
+            >
+                EDUCATION
+            </h1>
+            {
+                (this.state.showEducation && this.state.showExperience) ?
+                <div>
+                    {this.showExperience()}
+                    {education}
+                </div>
+                :
+                (this.state.showEducation && this.state.showSkills)?
+                <div>
+                    {this.showSkills()}
+                    {education}
+                </div>
+                :
+                this.state.showEducation ?
+                <div>
+                    {education}
+                </div>
+                :
+                null
+            }
+
             <h1 
                 className='header' 
                 onClick={this.showSkills}
@@ -217,17 +306,18 @@ class ResumePage extends Component {
                 (this.state.showSkills && this.state.showExperience) ?
                 <div>
                     {this.showExperience()}
-                    {skills[0]}
+                    {skills}
                 </div>
                 :
-                this.state.showSkills && !this.state.showExperience ?
+                (this.state.showSkills && this.state.showEducation)?
                 <div>
-                    {skills[0]}
+                    {this.showEducation()}
+                    {skills}
                 </div>
                 :
                 this.state.showSkills ?
                 <div>
-                    {skills[0]}
+                    {skills}
                 </div>
                 :
                 null

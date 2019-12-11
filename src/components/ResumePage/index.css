@@ -4,7 +4,7 @@
     margin-bottom: 0px;
 }
 .scrollable-view {
-    height: 80vh;
+    height: 78vh;
     overflow-y: scroll;
     /* display: none; */
     /* -ms-overflow-style: none; */
@@ -127,10 +127,11 @@ h2.title {
 .skill-level {
     background-color: rgba(14, 143, 24, 0.3);
     margin-top: 5px;
-    margin-left: 5px;
+    /* margin-left: 5px;
     border-radius: 5px;
     padding: 5px;
-    width: 40px;
+    width: 40px; */
+    width: .2px;
     height: 30px;
 }
 .skill-row {
@@ -153,4 +154,32 @@ h2.title {
 .skill-header-right {
     margin-left: 6vw;
     font-size: 20px;
+}
+.ed-date {
+    margin-left: 1vw;
+    color:gray;
+}
+.ed-title{
+    margin-left: 5vw;
+    margin-top: 5vh;
+    padding: 15px 0px 15px 0px;
+    color: #808080;
+}
+.gpa {
+    margin-left: 1vw;
+    color:gray;
+}
+.ed {    
+    height: 72vh;
+}
+.ed-header { 
+    margin-top: 5vh;
+    padding-bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(160,160,160,0.3);
+}
+.ed-img {
+    height: 100px;
+    width: 150px;
 }
