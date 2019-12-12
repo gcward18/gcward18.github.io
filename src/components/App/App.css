@@ -50,18 +50,29 @@ font-family: 'Julius Sans One', sans-serif;
 p li ul {
   cursor: default;
 }
-.content-div {
+.content-div {    
   padding: 15px;
   background-color: white;
   display: flex;
+  flex-direction: row;
   position: absolute;
-  width: 90vh;
-  height: 94vh;
+  width: 97%;
+  height: 89.5vh;
+  top: 5vh;
+}
+
+@media (max-width: 900px){
+  .content-div {
+    flex-direction: column;
+  }
 }
 hr{
   border-style: none;
   margin: 0px;
 }
+
 .linker {
+  position: flex;
+  flex-direction: row;
   width: 105vh;
 }

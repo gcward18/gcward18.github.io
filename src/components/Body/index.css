@@ -8,6 +8,11 @@
     left: 20px;
     top: 0px;
 }
-h1 {
 
-}
+@media (max-width: 900px){
+    .body-div {
+      width: 20 vh;
+      border-left: none;
+      padding-left: 0px;
+    }
+  }
