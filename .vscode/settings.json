@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "tuple": "cpp"
-    },
-    "git.ignoreLimitWarning": true,
-    "git.path" : "/usr/bin/git"
-}
