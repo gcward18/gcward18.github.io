@@ -7,11 +7,16 @@
   margin-left: 20px;
   left: 20px;
 }
-
-@media (max-width: 900px){
+@media (min-width: 800px) and (min-height: 350px) and (max-width: 1100px) and (max-height: 700px) {
+  .body-div {
+    height: unset;
+  }
+}
+@media (max-width: 900px) and (min-height: 400px){
     .body-div {
       width: 40vh;
       border-left: none;
       padding-left: 0px;
+      height: unset;
     }
   }

@@ -59,7 +59,7 @@ p li ul {
   height: 89.5vh;
 }
 
-@media (max-width: 900px){
+@media (max-height: 900px ) and (max-width: 400px){
   .App {
     display: flex;
     flex-direction: column;
