@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.f5ceb74c.chunk.css",
+    "main.css": "/static/css/main.8887508c.chunk.css",
     "main.js": "/static/js/main.a7f683fe.chunk.js",
     "main.js.map": "/static/js/main.a7f683fe.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bbc06ef5.js",
@@ -8,9 +8,9 @@
     "static/js/2.df1b982b.chunk.js": "/static/js/2.df1b982b.chunk.js",
     "static/js/2.df1b982b.chunk.js.map": "/static/js/2.df1b982b.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.83277d163723cef0cd7ff4668fc14a53.js": "/precache-manifest.83277d163723cef0cd7ff4668fc14a53.js",
+    "precache-manifest.a220e9243e04fe1318d338b05f4b21a5.js": "/precache-manifest.a220e9243e04fe1318d338b05f4b21a5.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.f5ceb74c.chunk.css.map": "/static/css/main.f5ceb74c.chunk.css.map",
+    "static/css/main.8887508c.chunk.css.map": "/static/css/main.8887508c.chunk.css.map",
     "static/media/Facebook_Logo_(2019).png": "/static/media/Facebook_Logo_(2019).5d6ea38a.png",
     "static/media/index.css": "/static/media/www.cf2f76c7.png",
     "static/media/email-logo.png": "/static/media/email-logo.229079c8.png",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.bbc06ef5.js",
     "static/js/2.df1b982b.chunk.js",
-    "static/css/main.f5ceb74c.chunk.css",
+    "static/css/main.8887508c.chunk.css",
     "static/js/main.a7f683fe.chunk.js"
   ]
 }
