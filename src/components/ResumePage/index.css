@@ -128,10 +128,6 @@ h2.title {
 .skill-level {
     background-color: rgba(14, 143, 24, 0.3);
     margin-top: 5px;
-    /* margin-left: 5px;
-    border-radius: 5px;
-    padding: 5px;
-    width: 40px; */
     width: .2px;
     height: 30px;
 }
@@ -191,4 +187,33 @@ h2.title {
 }
 .ed-block {    
     border-bottom: 1px solid rgba(160,160,160,0.3);
+}
+@media (max-height: 900px) {
+    .scrollable-view {
+        height: fit-content;
+    }
+    .ed {
+        height: fit-content;
+    }
+    .ed-header{
+        flex-direction: column;
+    }
+    .ed-school-stuff{
+        margin-left: 0px;
+    }
+    .ed-img {
+        margin-left: 5vh;
+    }
+    .ed-title{
+        margin-left: 0px;
+    }
+    .skill-level{
+        width: .1px;
+    }
+    .skill-header-left {
+        width: 26vw;
+    }
+    .skill {
+        width: 30vw;
+    }
 }
