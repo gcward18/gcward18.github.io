@@ -10,7 +10,6 @@ class SideBarBottom extends Component {
     render() {
         return (
             <div className='contact-div'>
-                
                 <ul className='links'>
                     <li><a href='https://github.com/gcward18'><Img src={git} className='l-img'/></a></li>
                     <li><a href='https://www.linkedin.com/in/georgecward/'><Img src={link} className='l-img'/></a></li>

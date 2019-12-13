@@ -1,9 +1,13 @@
-.content-div {
+.content-body-div {
     padding: 15px;
     background-color: white;
     display: flex;
-    position: absolute;
-    width: 97%;
-    height: 89.5vh;
-    top: 5vh;
+    flex-direction: row;
+    height: 92.7vh;
 }
+
+@media (max-width: 900px){
+    .content-body-div {
+      flex-direction: column;
+    }
+  }

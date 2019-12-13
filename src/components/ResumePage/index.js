@@ -32,7 +32,7 @@ class ResumePage extends Component {
         var level = []
         var backgroundColor = 'red';
         for (var i = 0; i < skill_level*152; i++){
-            if(i==255){
+            if(i===255){
                 var j = 0;
             }
             if(i < 255){

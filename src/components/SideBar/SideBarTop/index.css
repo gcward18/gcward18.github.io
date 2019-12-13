@@ -8,28 +8,31 @@ font-family: 'Julius Sans One', sans-serif;
  */
 .personal-image-div {
     background-color: white;
-    height: 40%;
     font-family: "Raleway",Helvetica,sans-serif;
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 2vh;
+    margin-left: 1vh;
 }
 
 .name {
-    font-size: 24px;
+    font-size: 3.25vh;
     font-weight: bold;
     font-family: 'Julius Sans One', sans-serif;
     cursor: default;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     /* font:"Courier New", Courier, monospace !important; */
 }
 .email {
-    font-size: 1.25ch;
+    font-size: 1.25vh;
     font-weight: 300;
-    position: relative;
     width: fit-content;
     
     color:#646464;
     cursor: pointer;
     text-decoration: none;
     border-bottom: 1px dotted rgba(160,160,160,0.3);
+    margin-left: 7.5vh;
     /* font:"Courier New", Courier, monospace !important; */
 }
 
@@ -37,9 +40,22 @@ font-family: 'Julius Sans One', sans-serif;
     color: #2598BA
 }
 .my-photo {
-    height: 55%;
-    width: 50%;
+    height: 25vh;
+    width: 25vh;
+    margin-left: 2vh;
     border-radius: 100%;
-    position: relative;
-    top: 5px;
+}
+
+@media (max-width: 900px){
+    .personal-image-div {
+        margin-left: 5vh;
+    }
+    .sidebar-div {
+        margin-left: 5px;
+        margin-bottom: 5vh;
+    }
+    .my-photo {
+        width: 25vh;
+        height: 75%
+    }
 }

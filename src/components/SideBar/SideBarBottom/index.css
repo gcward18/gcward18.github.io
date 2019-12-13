@@ -1,8 +1,10 @@
 .contact-div {
+    position: relative;
     background-color: white;
     height: 5vh;
     border-top: 1px solid rgba(160,160,160,0.3);
     font-family: "Raleway",Helvetica,sans-serif;
+    margin-bottom: 2vh
 }
 
 .links {
