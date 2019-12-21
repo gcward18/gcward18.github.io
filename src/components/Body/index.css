@@ -14,9 +14,9 @@
 }
 @media (max-width: 900px) and (min-height: 400px){
     .body-div {
-      width: 40vh;
-      border-left: none;
-      padding-left: 0px;
+      width: 90%;
+      /* margin-left: 2vh; */
+      padding-left: 3vh;
       height: unset;
     }
   }
