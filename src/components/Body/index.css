@@ -9,14 +9,15 @@
 }
 @media (min-width: 400px) and (min-height: 300px) and (max-width: 1100px) and (max-height: 900px) {
   .body-div {
-    height: unset;
+    height: fit-content;
   }
 }
 @media (max-width: 900px) and (min-height: 400px){
     .body-div {
-      width: 90%;
-      /* margin-left: 2vh; */
+      width: 86vw;
       padding-left: 3vh;
-      height: unset;
+      height: fit-content;
+      border: none;
+      margin-left: 0;
     }
   }

@@ -32,7 +32,7 @@ font-family: 'Julius Sans One', sans-serif;
     cursor: pointer;
     text-decoration: none;
     border-bottom: 1px dotted rgba(160,160,160,0.3);
-    margin-left: 7.5vh;
+    margin-left: 4.5vh;
     /* font:"Courier New", Courier, monospace !important; */
 }
 
@@ -42,7 +42,8 @@ font-family: 'Julius Sans One', sans-serif;
 .my-photo {
     height: 25vh;
     width: 25vh;
-    margin-left: 2vh;
+    left: 2vw;
+    /* margin-left: 2vh; */
     border-radius: 100%;
 }
 
