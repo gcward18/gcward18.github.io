@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import {useGLTF, OrbitControls, Environment, useAnimations} from '@react-three/drei';
 
 export function SoldierModel(props: any) {
-    const { scene, animations, materials } = useGLTF('https://threejs.org/examples/models/gltf/Soldier.glb');
+    const { scene, animations } = useGLTF('https://threejs.org/examples/models/gltf/Soldier.glb');
     const {actions} = useAnimations(animations,  scene);
 
     useEffect(() => {
@@ -14,9 +14,13 @@ export function SoldierModel(props: any) {
 
         scene.traverse((child) => {
             console.log(child)
+            // @ts-ignore
             if (child.isMesh && child.name.includes('vanguard')) {
+                // @ts-ignore
                 child.material.color.set("#B9D9EB");
+                // @ts-ignore
                 child.material.metalness = 0.15;
+                // @ts-ignore
                 child.material.roughness = 1;
             }
         })

@@ -1,4 +1,3 @@
-import React from "react";
 import "./PersonalLogo.css"; // We'll define this next
 
 export default function PersonalLogo() {

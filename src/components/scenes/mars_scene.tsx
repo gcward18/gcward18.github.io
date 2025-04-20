@@ -15,7 +15,6 @@ export default function Scene() {
             <Environment
                 background
                 files="/mars.jpg" // put mars.jpg in public folder
-                preset={null} // disable presets like 'sunset'
             />
 
             <OrbitControls />
