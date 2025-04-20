@@ -1,4 +1,3 @@
-import React from "react";
 import "./RadialMenu.css"; // We'll define this next
 import {
     Home,
