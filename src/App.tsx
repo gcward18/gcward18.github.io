@@ -5,11 +5,11 @@ import PersonalLogo from "./components/Items/PersonalLogo/PersonalLogo.tsx";
 
 function App() {
   return (
-    <div className="App">
-        <ThreeJSAnimation />
-        <RadialMenu></RadialMenu>
-        <PersonalLogo ></PersonalLogo>
-    </div>
+      <div className="App">
+          <ThreeJSAnimation />
+          <RadialMenu></RadialMenu>
+          <PersonalLogo ></PersonalLogo>
+      </div>
   )
 }
 

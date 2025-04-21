@@ -16,18 +16,9 @@
 }
 
 .icon-wrapper {
-    position: relative;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
     background: rgba(0, 186, 255, 0.1);
     border: 1px solid rgba(0, 186, 255, 0.25);
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: spin-reverse 20s linear infinite;
-    cursor: pointer;
 }
 
 .icon-wrapper:hover {

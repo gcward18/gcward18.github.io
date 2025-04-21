@@ -22,23 +22,62 @@ const menuItems = [
 ];
 
 export default function RadialMenu() {
+    const radius = 15; // tailwind spacing units (2rem = 8 * 0.5rem)
+
     return (
-        <div className="radial-container">
-            {menuItems.map(({ label, href, icon, x, y, external }) => (
-                <a
-                    key={label}
-                    href={href}
-                    target={external ? "_blank" : "_self"}
-                    rel={external ? "noopener noreferrer" : undefined}
-                    className="radial-item"
-                    style={{ transform: `translate(${x}vw, ${y}vw)` }}
-                >
-                    <div className="icon-wrapper">
-                        {icon}
-                        <span className="tooltip">{label}</span>
-                    </div>
-                </a>
-            ))}
-        </div>
+        <>
+            <div className="hidden md:flex fixed w-full h-screen items-center justify-center ">
+                <div className="relative w-[280px] h-[280px] animate-spin-slow">
+                    {menuItems.map((item, index) => {
+                        const angle = (index / menuItems.length) * 2 * Math.PI;
+                        const x = Math.cos(angle) * radius;
+                        const y = Math.sin(angle) * radius;
+
+                        return (
+                            <a
+                                key={item.label}
+                                href={item.href}
+                                className="absolute icon-wrapper w-16 h-16 rounded-full bg-white p-2 flex items-center justify-center shadow-lg animate-spin-slow-reverse"
+                                style={{
+                                    top: `calc(50% + ${y}rem - 1.75rem)`,
+                                    left: `calc(50% + ${x}rem - 1.75rem)`,
+                                }}
+                            >
+                                <span className="sr-only">{item.label}</span>
+                                {item.icon}
+                            </a>
+                        );
+                    })}
+                </div>
+            </div>
+
+            {/* Mobile: Fixed left/right split */}
+            <div className="md:hidden fixed inset-0 flex items-center justify-between px-4 pointer-events-none z-50">
+                <div className="flex flex-col space-y-4 pointer-events-auto">
+                    {menuItems.slice(0, menuItems.length / 2).map((item) => (
+                        <a
+                            key={item.label}
+                            href={item.href}
+                            style={{margin: '10px'}}
+                            className="w-14 h-14 bg-white icon-wrapper rounded-full flex items-center justify-center shadow-md  m-[10px]"
+                        >
+                            {item.icon}
+                        </a>
+                    ))}
+                </div>
+                <div className="flex flex-col space-y-4 pointer-events-auto">
+                    {menuItems.slice(menuItems.length / 2).map((item) => (
+                        <a
+                            key={item.label}
+                            href={item.href}
+                            style={{margin: '10px'}}
+                            className="w-14 h-14 bg-white icon-wrapper rounded-full flex items-center justify-center shadow-md m-[10px]"
+                        >
+                            {item.icon}
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </>
     );
 }

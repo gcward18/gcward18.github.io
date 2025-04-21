@@ -13,7 +13,6 @@ export function SoldierModel(props: any) {
         }
 
         scene.traverse((child) => {
-            console.log(child)
             // @ts-ignore
             if (child.isMesh && child.name.includes('vanguard')) {
                 // @ts-ignore
