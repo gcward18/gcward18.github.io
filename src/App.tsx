@@ -1,15 +1,14 @@
-import './App.css'
-import RadialMenu from "./components/menus/RadialMenu/RadialMenu.tsx"
-import ThreeJSAnimation from "./components/scenes/solider.tsx";
-import PersonalLogo from "./components/Items/PersonalLogo/PersonalLogo.tsx";
+import { Routes, Route } from 'react-router-dom'
+import About from './components/pages/About'
+import Home from './components/pages/Home'
 
 function App() {
   return (
-      <div className="App">
-          <ThreeJSAnimation />
-          <RadialMenu></RadialMenu>
-          <PersonalLogo ></PersonalLogo>
-      </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      {/* Add other routes as needed */}
+    </Routes>
   )
 }
 

@@ -37,7 +37,7 @@ export default function RadialMenu() {
                             <a
                                 key={item.label}
                                 href={item.href}
-                                className="absolute icon-wrapper w-16 h-16 rounded-full bg-white p-2 flex items-center justify-center shadow-lg animate-spin-slow-reverse"
+                                className="absolute icon-wrapper w-16 h-16 rounded-full bg-white p-2 flex items-center justify-center shadow-lg animate-spin-slow-reverse custom-bg"
                                 style={{
                                     top: `calc(50% + ${y}rem - 1.75rem)`,
                                     left: `calc(50% + ${x}rem - 1.75rem)`,

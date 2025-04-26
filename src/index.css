@@ -38,6 +38,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: scroll;
 }
 
 a {
@@ -96,4 +97,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.custom-bg,.custom-bg:hover {
+  --background: 27 27 27;
+  --foreground: 225 225 225;
+  --muted: 115 115 115;
+  --accent: 0 186 255;
+  --tw-shadow: 5px 5px 20px 0px rgba(0, 186, 255, 0.3);
+  --tw-shadow-colored: 5px 5px 20px 0px var(--tw-shadow-color)
+  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)
+  color: rgb(var(--accent));
+}
+.custom-bg {
+  --background: 27 27 27;
+  --foreground: 225 225 225;
+  --muted: 115 115 115;
+  --accent: 0 186 255;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(var(--accent) / .3);
+  background-color: rgb(var(--background) / .2);
+  --tw-shadow: inset 0 17px 5px -9px rgba(254, 254, 91, .05);
+  --tw-shadow-colored: inset 0 17px 5px -9px var(--tw-shadow-color);
+  --tw-backdrop-blur: blur(6px);
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
